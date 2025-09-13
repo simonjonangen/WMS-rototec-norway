@@ -36,7 +36,6 @@ def user_stats_overview():
         return str(e), 500
 
 
-# Route: Stats for specific user
 @user_stats_bp.route('/user_stats/<string:username>')
 @login_required
 @role_required(master_role)
@@ -47,27 +46,43 @@ def user_stats(username):
             return render_template("user_stats.html", stats={}, username=username)
 
         headers = values[0]
-        # Step 1: Parse rows into dicts
-        logs = [
-            dict(zip(headers, row))
-            for row in values[1:]
-            if row  # Only skip truly empty rows
-        ]
 
-        # Step 2: Filter by username
+        def as_int(v, default=0):
+            try:
+                return int(str(v).strip())
+            except Exception:
+                return default
+
+        # 1) Parse rows into dicts (keep even if some cols missing)
+        logs = [dict(zip(headers, row)) for row in values[1:] if row]
+
+        # 2) Filter by username
         logs = [l for l in logs if l.get("user_name") == username]
 
+        # 3) Sort newest first (handle missing timestamps)
         logs.sort(key=lambda x: x.get("timestamp", ""), reverse=True)
 
-        total_taken = sum(int(log["quantity"]) for log in logs if log["action"] == "take")
-        total_returned = sum(int(log["quantity"]) for log in logs if log["action"] == "return")
-        last_active = logs[0]["timestamp"][:16].replace("T", " ") if logs else None
+        # 4) Totals (guard missing keys)
+        total_taken = sum(as_int(log.get("quantity")) for log in logs if log.get("action") == "take")
+        total_returned = sum(as_int(log.get("quantity")) for log in logs if log.get("action") == "return")
+        last_active = logs[0].get("timestamp", "")[:16].replace("T", " ") if logs else None
 
-        article_counts = Counter(log["article_number"] for log in logs if log.get("article_number"))
+        # 5) Top articles
+        from collections import Counter, defaultdict
+        article_counts = Counter(log.get("article_number") for log in logs if log.get("article_number"))
+        if None in article_counts:
+            del article_counts[None]
         top_articles = article_counts.most_common(5)
 
-        products = get_all_items()
-        product_map = {p["article_number"]: p["product_name"] for p in products}
+        # 6) Product name lookup — SAFE
+        products = get_all_items() or []
+        product_map = {}
+        for p in products:
+            art = p.get("article_number")
+            # try multiple common name keys; default to ""
+            name = p.get("product_name") or p.get("name") or p.get("title") or ""
+            if art:
+                product_map[art] = name
 
         top_items = [
             {
@@ -78,29 +93,27 @@ def user_stats(username):
             for article, count in top_articles
         ]
 
-        from collections import defaultdict
-
-        # Calculate net taken per article_number
+        # 7) Compute unreturned items (net > 0)
         net_quantities = defaultdict(int)
         for log in logs:
-            if "article_number" in log and "quantity" in log:
-                qty = int(log["quantity"])
-                if log["action"] == "take":
-                    net_quantities[log["article_number"]] += qty
-                elif log["action"] == "return":
-                    net_quantities[log["article_number"]] -= qty
+            art = log.get("article_number")
+            if not art:
+                continue
+            qty = as_int(log.get("quantity"))
+            action = log.get("action")
+            if action == "take":
+                net_quantities[art] += qty
+            elif action == "return":
+                net_quantities[art] -= qty
 
-        # Filter only items that are still out (net > 0)
         unreturned_items = [
             {
                 "article_number": art,
                 "name": product_map.get(art, art),
                 "quantity": qty
             }
-            for art, qty in net_quantities.items()
-            if qty > 0
+            for art, qty in net_quantities.items() if qty > 0
         ]
-
 
         stats = {
             "total_taken": total_taken,
