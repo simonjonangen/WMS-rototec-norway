@@ -1,0 +1,224 @@
+{% extends 'layout.html' %}
+{% block extra_nav_links_take %}
+  <li><a href="{{ url_for('catalog.catalog_view') }}" class="active">Catalog</a></li>
+{% endblock %}
+{% block title %}Take Article{% endblock %}
+
+{% block content %}
+
+<style>
+  .hero {
+    min-height: auto !important;
+    padding-top: 220px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .hero .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .section-title {
+    padding-bottom: 20px !important;
+    margin-bottom: 10px !important;
+  }
+
+  #manualSearch {
+    margin-bottom: 0.5rem;
+  }
+
+  #buttons-section {
+    padding-top: 120px !important;
+    padding-bottom: 20px !important;
+    min-height: 500px;
+    position: relative;
+  }
+
+  #buttons-section .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('/static/assets/img/hero-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  #buttons-section .container {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .table-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  #table-section {
+    position: relative;
+    background-image: url('/static/assets/img/section-2-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+.btn-outline-green {
+  color: white !important;
+  border: 1px solid white;
+  background-color: transparent;
+}
+
+.btn-outline-green:hover {
+  background-color: #4CAF50;
+  color: white !important;
+}
+
+
+</style>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  #reader {
+    scroll-margin-top: 100px; /* Adjust this value based on your header height */
+  }
+</style>
+
+<!-- Section 1: Hero/Search -->
+<section id="hero" class="hero section dark-background">
+  <div class="hero-bg" data-aos="fade-in"></div>
+  <div class="container py-4" data-aos="fade-up">
+    <div class="container section-title text-center" data-aos="fade-up">
+      <h2>Take Article</h2>
+      <p>Scan or search to take available equipment</p>
+    </div>
+
+    <div id="errorBox" class="alert alert-danger d-none" role="alert"></div>
+    <div id="successBox" class="alert alert-success d-none" role="alert"></div>
+
+    <div class="row justify-content-center mt-4">
+      <div class="col-xl-4 col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <!-- Clickable container for QR Scanner -->
+        <div class="icon-box text-center py-3 text-white" style="cursor: pointer;" onclick="startScanner()">
+          <i class="bi bi-qr-code-scan" style="font-size: 1.5rem;"></i>
+          <h3 class="mt-2" style="font-size: 1rem;">
+            Start QR Scan
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stop Scanner Button (initially hidden) -->
+    <div class="row justify-content-center mt-4">
+      <div class="col-xl-4 col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div id="stopBtn" class="icon-box text-center py-3 text-white d-none" style="cursor: pointer;" onclick="stopScanner()">
+          <i class="bi bi-x-circle" style="font-size: 1.5rem;"></i>
+          <h3 class="mt-2" style="font-size: 1rem;">
+            Close Camera
+          </h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center mb-3">
+      <div id="reader" style="width: 300px; margin-top: 1rem;" class="d-none"></div>
+    </div>
+
+    <div class="row justify-content-center g-2 mb-3">
+      <div class="col-md-6 col-lg-4">
+        <input type="text" id="manualSearch" class="form-control text-center" placeholder="Search by Article" oninput="fetchSuggestions()">
+        <div id="suggestionCards" class="row g-2 mt-2"></div>
+        <div class="text-center mt-2">
+          <button id="loadMoreBtn" class="btn btn-outline-secondary d-none" onclick="toggleCardLimit()">Show more</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center g-2 mb-3">
+  <div class="col-md-6 col-lg-4">
+    <input type="text" id="projectSearch" class="form-control text-center" placeholder="Enter Project Number">
+
+    <!-- Hardcoded vertical space -->
+    <div style="height: 25px;"></div>
+
+    <div class="text-center">
+      <button class="btn btn-outline-green" onclick="fetchProjectItems()">Load Project Items</button>
+    </div>
+  </div>
+</div>
+
+
+
+
+  </div>
+
+
+
+
+</section>
+
+<section id="table-section" class="section dark-background">
+  <div class="container" data-aos="fade-up">
+    <div class="table-responsive">
+      <table class="table table-hover table-striped align-middle text-center mb-0" style="border-radius: .5rem; overflow: hidden;">
+        <thead class="table-dark text-white">
+          <tr>
+            <th>Image</th>
+            <th>Article Number</th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Unit</th>
+            <th>Type</th>
+            <th>Available</th>
+            <th>Quantity</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody id="scannedItemsBody"></tbody>
+      </table>
+      <p class="mt-2"><strong>Number of Articles:</strong> <span id="totalItems">0</span></p>
+    </div>
+  </div>
+</section>
+
+
+<!-- Section 3: Buttons -->
+<section id="hero" class="hero section dark-background">
+  <div class="hero-bg" data-aos="fade-in"></div>
+  <div class="container py-4" data-aos="fade-up">
+
+    <div class="row justify-content-center" style="position: relative; top: -140px;">
+      <div class="col-xl-4 col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="icon-box text-center py-3 text-white" style="cursor: pointer;" onclick="document.getElementById('confirmBtn').click()">
+          <i class="bi bi-check2-circle" style="font-size: 1.5rem;"></i>
+          <h3 class="mt-2" style="font-size: 1rem;">
+            Confirm Take
+          </h3>
+        </div>
+
+        <!-- Hidden submit trigger button -->
+        <button id="confirmBtn"
+                type="button"
+                class="btn btn-link text-white p-0 d-none"
+                style="text-decoration: none; font-size: inherit;"
+                onclick="confirmTake()">
+        </button>
+      </div> <!-- END col-xl-4 -->
+    </div> <!-- END row -->
+
+  </div> <!-- END container -->
+</section>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/html5-qrcode"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="{{ url_for('take_item.take_item_js', filename='take_item.js') }}"></script>
+
+
+{% endblock %}

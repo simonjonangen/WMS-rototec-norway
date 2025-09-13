@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section id="hero" class="hero section dark-background">
+
+  <!-- Background image -->
+  <img src="{{ url_for('static', filename='assets/img/hero-bg.jpg') }}" alt="" data-aos="fade-in">
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <!-- Title block styled and centered -->
+    <div class="container section-title text-center" data-aos="fade-up">
+      <h2>Add User</h2>
+      <p>Create a new account with role-based access</p>
+    </div>
+
+    <!-- Centered Form -->
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form method="POST">
+          <div class="mb-3">
+            <label for="name" class="form-label text-white">Full name</label>
+            <input type="text" class="form-control" id="name" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="username" class="form-label text-white">Username (email/ID)</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+          </div>
+          <div class="mb-3">
+            <label for="pin" class="form-label text-white">Password</label>
+            <input type="text" class="form-control" id="pin" name="pin" required>
+          </div>
+          <div class="mb-3">
+            <label for="role" class="form-label text-white">Role</label>
+            <select class="form-select" id="role" name="role" required>
+              <option value="" disabled selected>-- Select Role --</option>
+              <option value="manager">Manager</option>
+              <option value="worker">Worker</option>
+            </select>
+          </div>
+
+          <!-- Icon-style submit button -->
+          <div class="row justify-content-center mt-4">
+            <div class="col-xl-4 col-md-4" data-aos="fade-up" data-aos-delay="300">
+              <button type="submit" class="w-100 border-0 bg-transparent p-0 text-white">
+                <div class="icon-box text-center py-3" style="cursor: pointer;">
+                  <i class="bi bi-person-plus" style="font-size: 1.5rem;"></i>
+                  <h3 class="mt-2" style="font-size: 1rem;">
+                    Add User
+                  </h3>
+                </div>
+              </button>
+            </div>
+          </div>
+
+
+        </form>
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+{% endblock %}

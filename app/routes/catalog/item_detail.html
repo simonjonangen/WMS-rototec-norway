@@ -1,0 +1,153 @@
+{% extends 'layout.html' %}
+{% block title %}Item Detail{% endblock %}
+{% block content %}
+
+<style>
+  .hero {
+    min-height: auto !important;
+    padding-top: 220px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .hero .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .section-title {
+    padding-bottom: 20px !important;
+    margin-bottom: 10px !important;
+  }
+
+  #detail-section {
+    position: relative;
+    background-image: url('/static/assets/img/section-2-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 0;
+  }
+
+  .table-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-yellow {
+    background-color: #ffc107;
+    color: #000;
+    border: none;
+  }
+
+  .btn-green {
+  background-color: #4CAF50;
+  color: #000 !important;
+}
+
+  .bg-success {
+  background-color: #4CAF50 !important; /* or your desired green */
+}
+
+  .btn-yellow:hover {
+    background-color: #e0a800;
+    color: #000;
+  }
+</style>
+
+<section id="hero" class="hero section dark-background">
+  <div class="hero-bg" data-aos="fade-in"></div>
+  <div class="container py-4" data-aos="fade-up">
+    <div class="container section-title text-center">
+      <p>Detailed overview of each article in catalog.</p>
+    </div>
+  </div>
+</section>
+
+<section id="detail-section" class="section dark-background">
+  <div class="container">
+    <div class="table-container">
+      <div class="row">
+        <div class="col-md-5 text-center mb-4">
+          <img src="{{ item.product_image_url or '/static/placeholder.png' }}"
+               alt="Image of {{ item.product_name }}"
+               class="img-fluid rounded"
+               style="max-height: 250px;">
+        </div>
+
+        <div class="col-md-7">
+          <ul class="list-group mb-3">
+            <h5 class="card-title">
+                  <a style="text-decoration: none;">
+                    {{ item.product_name }}
+
+                </h5>
+            <li class="list-group-item"><strong>Article Number:</strong> {{ item.article_number }}</li>
+            <li class="list-group-item"><strong>Category:</strong> {{ item.category }}</li>
+            <li class="list-group-item"><strong>Location:</strong> {{ item.location }}</li>
+            <li class="list-group-item"><strong>Unit:</strong> {{ item.unit }}</li>
+            <li class="list-group-item"><strong>Supplier:</strong> {{ item.supplier or 'Not Registered' }}</li>
+            <li class="list-group-item">
+              <strong>Consignment Stock:</strong>
+              {% set _cons = item.get('consignment_stock') or item.get('Consignment Stock') or item.get('consignment') %}
+              {% if _cons is not none and (not (_cons is string) or _cons|trim != '') %}
+                {{ _cons }}
+              {% else %}
+                No
+              {% endif %}
+            </li>
+
+            <li class="list-group-item">
+              <strong>Status:</strong>
+              <span class="badge bg-success text-dark">Available: {{ item.stock }}</span>
+            </li>
+            <li class="list-group-item">
+              <strong>QR code:</strong><br>
+              {% if item.qr_code_url %}
+                <img src="{{ item.qr_code_url }}" alt="QR" class="img-fluid mt-2" style="max-height: 120px;">
+              {% else %}
+                <code>{{ item.qr_code }}</code>
+              {% endif %}
+            <li class="list-group-item text-center">
+              <div class="input-group mt-2 justify-content-center" style="max-width: 220px; margin: auto;">
+                <input type="number" id="take-qty" class="form-control text-center" value="1" min="1" step="1">
+                <button class="btn btn-green"
+                        onclick='addItemForTake({{ item | tojson | safe }}, document.getElementById("take-qty").value)'>
+                  Add to Take
+                </button>
+              </div>
+            </li>
+
+            <li class="list-group-item text-center">
+              <div class="input-group mt-2 justify-content-center" style="max-width: 220px; margin: auto;">
+                <input type="number" id="return-qty" class="form-control text-center" value="1" min="1" step="1">
+                <button class="btn btn-green"
+                        onclick='addItemForReturn({{ item | tojson | safe }}, document.getElementById("return-qty").value)'>
+                  Add to Return
+                </button>
+              </div>
+            </li>
+
+
+
+
+            </li>
+          </ul>
+
+        </div> <!-- col-md-7 -->
+      </div> <!-- row -->
+    </div> <!-- table-container -->
+    <div class="text-center mt-4">
+      <button onclick="window.location.href='/catalog';"
+              class="btn btn-outline-light btn-sm d-inline-flex align-items-center gap-1">
+        <i class="bi bi-arrow-left-circle"></i>
+        <span class="d-none d-md-inline">Back</span>
+      </button>
+    </div>
+  </div> <!-- container -->
+</section>
+
+
+
+{% endblock %}

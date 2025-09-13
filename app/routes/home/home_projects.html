@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section id="hero" class="hero section dark-background">
+
+  <!-- Hero background image -->
+  <img src="{{ url_for('static', filename='assets/img/hero-bg.jpg') }}" alt="" data-aos="fade-in">
+
+  <div class="container">
+
+
+    <!-- Admin tools -->
+    <div class="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
+
+      <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="1100">
+        <a href="{{ url_for('projects.projects') }}" class="icon-box text-decoration-none">
+          <!-- Clipboard-check: good for "Active / ongoing work" -->
+          <i class="bi bi-clipboard-check"></i>
+          <h3>Active Projects</h3>
+        </a>
+      </div>
+
+      <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="1200">
+        <a href="{{ url_for('projects.finished_projects') }}" class="icon-box text-decoration-none">
+          <!-- Archive: clearly represents completed/finished items -->
+          <i class="bi bi-archive-fill"></i>
+          <h3>Finished Projects</h3>
+        </a>
+      </div>
+
+
+    </div>
+
+
+
+  </div>
+</section>
+{% endblock %}

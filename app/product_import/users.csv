@@ -1,0 +1,22 @@
+name,email,pin,role
+Simon Jonängen,simon,1234,worker
+Jonas Grundström,Jonas,4321,manager
+Dusko Carev,Dusko,1234,worker
+Knut Henæs,Knut,4321,manager
+Slaven Proso,Slaven,1234,worker
+Glenn Voll,Glenn,4321,manager
+Janis Braslauskis,Janis,1234,worker
+Aigars Haze,Aigars,1234,worker
+Kristaps Spels,Kristaps,1234,worker
+Thomas Solbakken Kongsvold,Thomas,4321,manager
+Kenny Ojanne,Kenny,4321,manager
+Davis Lasmanis,Davis,1234,worker
+Ritvars Rozentals,Ritvars,1234,worker
+Jørn Berg Hofseth,Jørn,4321,manager
+Aigars Berkolds,Aigars,1234,worker
+Raivis Draugs,Raivis,1234,worker
+Vedran Borozan,Vedran,1234,worker
+Lielgaidins Edgars,Lielgaidins,1234,worker
+Mats Voll,Mats,4321,manager
+worker1,guest1,1234,worker
+manager1,manager1,4321,manager

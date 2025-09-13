@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block title %}User Statistics{% endblock %}
+
+{% block content %}
+<section id="hero" class="hero section dark-background">
+  <img src="{{ url_for('static', filename='assets/img/hero-bg.jpg') }}" alt="" data-aos="fade-in">
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <!-- Section title -->
+    <div class="container section-title text-center" data-aos="fade-up">
+      <h2>All Users</h2>
+      <p>Browse individual user statistics</p>
+    </div>
+
+    <!-- User Table -->
+      <div class="table-responsive">
+        <table class="table table-hover table-striped align-middle text-center mb-0" style="border-radius: .5rem; overflow: hidden;">
+          <thead class="table-dark text-white">
+            <tr>
+              <th>User</th>
+              <th>Statistics</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in users %}
+            <tr>
+              <td style="font-size: 1.2rem; font-weight: 500;">{{ user }}</td>
+              <td>
+                <div class="row justify-content-center">
+                  <div class="col-xl-3 col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <a href="{{ url_for('user_stats.user_stats', username=user) }}"
+                       class="text-decoration-none"
+                       style="color: black;">
+                      <div class="icon-box text-center py-2 px-1 text-black" style="cursor: pointer;">
+                        <i class="bi bi-bar-chart-line" style="font-size: 1.5rem;"></i>
+                          <h3 class="mt-1" style="font-size: 1rem; color: #333;">
+                            Show Stats
+                          </h3>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+  </div>
+</section>
+{% endblock %}

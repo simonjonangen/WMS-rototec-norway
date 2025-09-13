@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="text-center mt-5">
+  <h1 class="text-warning fw-bold">🔍 404 – Page Not Found</h1>
+  <p class="lead">The page you’re looking for doesn’t exist. It may have been moved or deleted.</p>
+  <img src="{{ url_for('static', filename='placeholder.png') }}" alt="Not Found" style="max-width: 250px;" class="my-3">
+  <br>
+  <a href="{{ url_for('auth.login') }}" class="btn btn-outline-success mt-3">🏠 Back to Home</a>
+</div>
+{% endblock %}

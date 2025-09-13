@@ -1,0 +1,308 @@
+{% extends 'layout.html' %}
+{% block extra_nav_links_catalog %}
+  <li>
+    <a href="{{ url_for('take_item.take_item') }}">
+      Take <span id="takeCount" class="badge bg-success text-dark ms-1">0</span>
+    </a>
+  </li>
+  <li>
+    <a href="{{ url_for('return_item.return_item') }}">
+      Return <span id="returnCount" class="badge bg-success text-dark ms-1">0</span>
+    </a>
+  </li>
+{% endblock %}
+
+
+{% block content %}
+
+<style>
+  .hero {
+    min-height: auto !important;
+    padding-top: 220px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .hero .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+
+  .section-title {
+    padding-bottom: 20px !important;
+    margin-bottom: 10px !important;
+  }
+
+  #detail-section {
+    position: relative;
+    background-image: url('/static/assets/img/section-2-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 0;
+  }
+
+  .table-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-yellow {
+    background-color: #ffc107;
+    color: #000;
+    border: none;
+  }
+
+  .btn-green {
+  background-color: #4CAF50;
+  color: #fff;
+}
+  .bg-success {
+  background-color: #4CAF50 !important; /* or your desired green */
+}
+
+
+
+  .btn-yellow:hover {
+    background-color: #e0a800;
+    color: #000;
+  }
+
+    .card-title a {
+    color: #343a40 !important; /* Force Bootstrap dark gray */
+  }
+
+  .card-title a:hover {
+    color: #000 !important; /* Optional: even darker on hover */
+  }
+</style>
+
+<style>
+  .pagination .page-item.active .page-link {
+    background-color: #4CAF50; /* Your chosen green */
+    color: #fff;
+    font-weight: bold;
+    border-color: #4CAF50;
+  }
+
+  .pagination .page-link {
+    color: #fff;
+    background-color: #343a40;
+    border: 1px solid #6c757d;
+  }
+
+  .pagination .page-link:hover {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+</style>
+
+
+<!-- Hero Title -->
+<section id="hero" class="hero section dark-background">
+  <img src="{{ url_for('static', filename='assets/img/hero-bg.jpg') }}" alt="" data-aos="fade-in">
+  <div class="container" data-aos="fade-up" data-aos-delay="100" style="padding-bottom: 0px;">
+
+    <!-- Title -->
+    <div class="container section-title text-center">
+      <h2>Article Catalog</h2>
+      <p>Browse and manage your inventory of articles</p>
+    </div>
+
+    <!-- 🔍 Filter Form -->
+    <form method="get" action="{{ url_for('catalog.catalog_view') }}" class="row g-3 mb-4 justify-content-center">
+      <div class="col-md-4">
+        <select class="form-select" name="category">
+          <option value="">All Categories</option>
+          {% for cat in unique_categories %}
+          <option value="{{ cat }}" {% if request.args.get('category') == cat %}selected{% endif %}>{{ cat }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col-md-4">
+        <input type="text" name="q" class="form-control" placeholder="Search by Article Name"
+               value="{{ request.args.get('q', '') }}">
+      </div>
+      <div class="col-md-2 d-flex">
+        <button class="btn btn-outline-light w-100">Filter</button>
+      </div>
+    </form>
+
+  </div>
+</section>
+
+<!-- Catalog Section -->
+<section id="table-section" class="section dark-background">
+  <div class="container table-container" data-aos="fade-up">
+    <div class="row justify-content-center">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
+        {% for item in items %}
+        <div class="col">
+          <div class="card h-100 shadow-sm d-flex flex-column">
+
+            <!-- Clickable product image -->
+            <a href="#" onclick='showItemDetails({{ item.id | tojson | safe }})'>
+              <img src="{{ item.product_image_url or url_for('static', filename='placeholder.png') }}"
+                   class="card-img-top img-fluid"
+                   alt="{{ item.product_name }}"
+                   style="height: 140px; object-fit: contain;"
+                   onerror="this.onerror=null;this.src='{{ url_for('static', filename='placeholder.png') }}';">
+            </a>
+
+            <div class="card-body d-flex flex-column justify-content-between">
+              <div>
+                <!-- Clickable product title -->
+                <h5 class="card-title">
+                  <a href="#" onclick="showItemDetails('{{ item.id }}')" style="text-decoration: none;">
+                    {{ item.product_name }}
+                  </a>
+                </h5>
+
+                <p class="card-text small">
+                  <strong>Category:</strong> {{ item.category }}<br>
+                  <strong>Location:</strong> {{ item.location }}<br>
+                  <strong>QR code:</strong> <code>{{ item.qr_code }}</code>
+                </p>
+
+                {% if item.qr_code_url %}
+                <div class="mt-2 text-center">
+                  <img src="{{ item.qr_code_url }}"
+                       alt="QR Code"
+                       class="img-fluid"
+                       style="max-height: 100px;">
+                </div>
+                {% endif %}
+
+                <div class="d-flex flex-wrap gap-1 mt-3">
+                  {% set stock = (item.stock or 0)|int %}
+                  <span class="badge bg-success text-dark">
+                    Available: {{ stock }}
+                  </span>
+
+                  {% if stock == 0 and unreturned %}
+                    {% for entry in unreturned if entry.article_number|string == item.article_number|string %}
+                    <span class="badge bg-success text-dark">
+                      👤 Picked by: {{ entry.user }} ({{ entry.quantity }})
+                    </span>
+                    {% endfor %}
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+
+    <!-- Pagination -->
+    {% if total_pages > 1 %}
+    <nav class="mt-5">
+      <ul class="pagination justify-content-center">
+        <li class="page-item {% if page == 1 %}disabled{% endif %}">
+          <a class="page-link" href="{{ url_for('catalog.catalog_view', page=1, q=request.args.get('q', ''), category=request.args.get('category', ''), supplier=request.args.get('supplier', '')) }}">«</a>
+        </li>
+        <li class="page-item {% if page == 1 %}disabled{% endif %}">
+          <a class="page-link" href="{{ url_for('catalog.catalog_view', page=page-1, q=request.args.get('q', ''), category=request.args.get('category', ''), supplier=request.args.get('supplier', '')) }}">‹</a>
+        </li>
+        {% for p in range(page-3, page+4) %}
+          {% if p > 0 and p <= total_pages %}
+          <li class="page-item {% if p == page %}active{% endif %}">
+            <a class="page-link" href="{{ url_for('catalog.catalog_view', page=p, q=request.args.get('q', ''), category=request.args.get('category', ''), supplier=request.args.get('supplier', '')) }}">{{ p }}</a>
+          </li>
+          {% endif %}
+        {% endfor %}
+        <li class="page-item {% if page == total_pages %}disabled{% endif %}">
+          <a class="page-link" href="{{ url_for('catalog.catalog_view', page=page+1, q=request.args.get('q', ''), category=request.args.get('category', ''), supplier=request.args.get('supplier', '')) }}">›</a>
+        </li>
+        <li class="page-item {% if page == total_pages %}disabled{% endif %}">
+          <a class="page-link" href="{{ url_for('catalog.catalog_view', page=total_pages, q=request.args.get('q', ''), category=request.args.get('category', ''), supplier=request.args.get('supplier', '')) }}">»</a>
+        </li>
+      </ul>
+    </nav>
+    {% endif %}
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/take_item/take_item.js"></script>
+<script src="/return_item/return_item.js"></script>
+
+
+<!-- Modal Structure -->
+<div class="modal fade" id="itemDetailModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="modalContent">
+      <!-- AJAX content gets loaded here -->
+    </div>
+  </div>
+</div>
+
+<script>
+  window.showItemDetails = function(itemId) {
+    fetch(`/item/${itemId}`, {
+      headers: { 'X-Requested-With': 'XMLHttpRequest' }
+    })
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('modalContent').innerHTML = html;
+      new bootstrap.Modal(document.getElementById('itemDetailModal')).show();
+
+      // Load both scripts if not already loaded
+      const loadScriptOnce = (src) => {
+        if (!document.querySelector(`script[src="${src}"]`)) {
+          const script = document.createElement('script');
+          script.src = src;
+          script.type = 'text/javascript';
+          script.onload = () => {
+            console.log(`✅ ${src} loaded`);
+          };
+          document.body.appendChild(script);
+        }
+      };
+
+      loadScriptOnce('/take_item/take_item.js');
+      loadScriptOnce('/return_item/return_item.js');
+    })
+    .catch(error => {
+      console.error('Error loading item detail:', error);
+    });
+  };
+</script>
+
+<script>
+  function updateNavCounts() {
+    const take = JSON.parse(sessionStorage.getItem("scannedItems_take") || "[]");
+    const ret  = JSON.parse(sessionStorage.getItem("scannedItems_return") || "[]");
+
+    const takeCount = take.reduce((sum, item) => sum + item.quantity, 0);
+    const returnCount = ret.reduce((sum, item) => sum + item.quantity, 0);
+
+    document.getElementById("takeCount").textContent = takeCount;
+    document.getElementById("returnCount").textContent = returnCount;
+  }
+
+  // Hook into existing addItemForTake / addItemForReturn
+  const originalAddTake = window.addItemForTake;
+  const originalAddReturn = window.addItemForReturn;
+
+  window.addItemForTake = function(item) {
+    originalAddTake(item);
+    setTimeout(updateNavCounts, 100);  // Slight delay to ensure sessionStorage is updated
+  };
+
+  window.addItemForReturn = function(item) {
+    originalAddReturn(item);
+    setTimeout(updateNavCounts, 100);
+  };
+
+  // Run once on load
+  document.addEventListener("DOMContentLoaded", updateNavCounts);
+</script>
+
+
+{% endblock %}

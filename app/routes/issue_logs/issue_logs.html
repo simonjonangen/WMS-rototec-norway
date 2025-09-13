@@ -1,0 +1,122 @@
+{% extends 'layout.html' %}
+{% block title %}Issue Reports{% endblock %}
+
+{% block content %}
+<style>
+  .pagination .page-item.active .page-link {
+    background-color: #4CAF50; /* Your chosen green */
+    color: #fff;
+    font-weight: bold;
+    border-color: #4CAF50;
+  }
+
+  .pagination .page-link {
+    color: #fff;
+    background-color: #343a40;
+    border: 1px solid #6c757d;
+  }
+
+  .pagination .page-link:hover {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+</style>
+
+<section id="hero" class="hero section dark-background">
+  <img src="{{ url_for('static', filename='assets/img/hero-bg.jpg') }}" alt="" data-aos="fade-in">
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <!-- Section title -->
+    <div class="container section-title text-center" data-aos="fade-up">
+      <h2>Issue Reports</h2>
+      <p>List of reported equipment issues</p>
+    </div>
+
+    <!-- Filter form -->
+    <form method="GET" action="{{ url_for('issue_logs.issue_logs') }}" class="row g-3 mb-4">
+      <div class="col-md-4">
+        <input type="text" name="user" class="form-control" placeholder="Filter on User">
+      </div>
+      <div class="col-md-4">
+        <input type="text" name="article" class="form-control" placeholder="Filter on Article Number">
+      </div>
+      <div class="col-md-4 d-flex">
+        <button class="btn btn-outline-light w-100">Filter</button>
+      </div>
+    </form>
+
+    <!-- Issues table -->
+    <div class="table-responsive">
+      <table id="issuesTable" class="table table-hover table-striped align-middle text-center mb-0" style="border-radius: .5rem; overflow: hidden;">
+        <thead class="table-dark text-white">
+          <tr>
+            <th>Date</th>
+            <th>User</th>
+            <th>Article Number</th>
+            <th>Article</th>
+            <th>Count</th>
+            <th>Issue</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for issue in issues|reverse %}
+          <tr>
+            <td>{{ issue.formatted_timestamp }}</td>
+            <td style="font-size: 1.1rem; font-weight: 500;">{{ issue.user_name }}</td>
+            <td>{{ issue.article_number }}</td>
+            <td>{{ issue.product_name }}</td>
+            <td>{{ issue.count }}</td>
+            <td>{{ issue.issue }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination controls -->
+    <nav class="mt-4">
+      <ul class="pagination justify-content-center" id="paginationControls"></ul>
+    </nav>
+
+
+
+  </div>
+</section>
+
+<!-- Pagination Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const rows = document.querySelectorAll("#issuesTable tbody tr");
+    const rowsPerPage = 15;
+    const totalPages = Math.ceil(rows.length / rowsPerPage);
+    const pagination = document.getElementById("paginationControls");
+
+    let currentPage = 1;
+
+    function showPage(page) {
+      currentPage = page;
+      rows.forEach((row, index) => {
+        row.style.display = (index >= (page - 1) * rowsPerPage && index < page * rowsPerPage) ? "" : "none";
+      });
+      renderPagination();
+    }
+
+    function renderPagination() {
+      pagination.innerHTML = "";
+
+      for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement("li");
+        li.className = `page-item ${i === currentPage ? "active" : ""}`;
+        li.innerHTML = `<button class="page-link">${i}</button>`;
+        li.addEventListener("click", () => showPage(i));
+        pagination.appendChild(li);
+      }
+    }
+
+    if (rows.length > 0) {
+      showPage(1);
+    }
+  });
+</script>
+{% endblock %}

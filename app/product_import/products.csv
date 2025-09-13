@@ -1,0 +1,410 @@
+article_number,product_description,category,location,unit,supplier,stock,safety_stock,product_name
+10000100,Collector weight 12kg in PE,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector weight 12kg in PE
+10000110,Collector weight 15kg steel,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector weight 15kg steel
+10000120,Collector weight 20kg steel,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector weight 20kg steel
+10000130,Collector weight 25kg steel,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector weight 25kg steel
+14006010,"Collector 2x40mm 60m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 60m SDR17 PN10 PE 12.5kg
+14007010,"Collector 2x40mm 70m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 70m SDR17 PN10 PE 12.5kg
+14008010,"Collector 2x40mm 80m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 80m SDR17 PN10 PE 12.5kg
+14009010,"Collector 2x40mm 90m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 90m SDR17 PN10 PE 12.5kg
+14010010,"Collector 2x40mm 100m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 100m SDR17 PN10 PE 12.5kg
+14011010,"Collector 2x40mm 110m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 110m SDR17 PN10 PE 12.5kg
+14012010,"Collector 2x40mm 120m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 120m SDR17 PN10 PE 12.5kg
+14013010,"Collector 2x40mm 130m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 130m SDR17 PN10 PE 12.5kg
+14014010,"Collector 2x40mm 140m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 140m SDR17 PN10 PE 12.5kg
+14015010,"Collector 2x40mm 150m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 150m SDR17 PN10 PE 12.5kg
+14016010,"Collector 2x40mm 160m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 160m SDR17 PN10 PE 12.5kg
+14017010,"Collector 2x40mm 170m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 170m SDR17 PN10 PE 12.5kg
+14018010,"Collector 2x40mm 180m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 180m SDR17 PN10 PE 12.5kg
+14019010,"Collector 2x40mm 190m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 190m SDR17 PN10 PE 12.5kg
+14020010,Collector 2x40mm 200m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 200m SDR17 PN10 PE 25kg
+14021010,Collector 2x40mm 210m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 210m SDR17 PN10 PE 25kg
+14022010,Collector 2x40mm 220m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 220m SDR17 PN10 PE 25kg
+14023010,Collector 2x40mm 230m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 230m SDR17 PN10 PE 25kg
+14024010,Collector 2x40mm 240m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 240m SDR17 PN10 PE 25kg
+14025010,Collector 2x40mm 250m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 250m SDR17 PN10 PE 25kg
+14026010,Collector 2x40mm 260m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 260m SDR17 PN10 PE 25kg
+14027010,Collector 2x40mm 270m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 270m SDR17 PN10 PE 25kg
+14028010,Collector 2x40mm 280m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 280m SDR17 PN10 PE 25kg
+14029010,Collector 2x40mm 290m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 290m SDR17 PN10 PE 25kg
+14030010,Collector 2x40mm 300m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 300m SDR17 PN10 PE 25kg
+14031010,"Collector 2x40mm 310m SDR17 PN10 included weight in PE 37,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 310m SDR17 PN10 PE 37.5kg
+14032010,"Collector 2x40mm 320m SDR17 PN10 included weight in PE 37,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 320m SDR17 PN10 PE 37.5kg
+14033010,"Collector 2x40mm 330m SDR17 PN10 included weight in PE 37,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 330m SDR17 PN10 PE 37.5kg
+14034010,"Collector 2x40mm 340m SDR17 PN10 included weight in PE 37,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 340m SDR17 PN10 PE 37.5kg
+14035010,"Collector 2x40mm 350m SDR17 PN10 included weight in PE 37,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 350m SDR17 PN10 PE 37.5kg
+14036010,Collector 2x40mm 360m SDR17 PN10 included weight in PE 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 360m SDR17 PN10 PE 50kg
+14037010,Collector 2x40mm 370m SDR17 PN10 included weight in PE 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 370m SDR17 PN10 PE 50kg
+14038010,Collector 2x40mm 380m SDR17 PN10 included weight in PE 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 380m SDR17 PN10 PE 50kg
+14039010,Collector 2x40mm 390m SDR17 PN10 included weight in PE 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 390m SDR17 PN10 PE 50kg
+14040010,Collector 2x40mm 400m SDR17 PN10 included weight in PE 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x40 400m SDR17 PN10 PE 50kg
+14000020,Riffled collector 2x40mm custom length SDR17 PN10,Collector,Collector,Meter,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 custom length SDR17 PN10
+14006020,"Riffled collector 2x40mm 60m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 60m SDR17 PN10 PE 12.5kg
+14007020,"Riffled collector 2x40mm 70m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 70m SDR17 PN10 PE 12.5kg
+14008020,"Riffled collector 2x40mm 80m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 80m SDR17 PN10 PE 12.5kg
+14009020,"Riffled collector 2x40mm 90m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 90m SDR17 PN10 PE 12.5kg
+14010020,"Riffled collector 2x40mm 100m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 100m SDR17 PN10 PE 12.5kg
+14011020,"Riffled collector 2x40mm 110m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 110m SDR17 PN10 PE 12.5kg
+14012020,"Riffled collector 2x40mm 120m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 120m SDR17 PN10 PE 12.5kg
+14013020,"Riffled collector 2x40mm 130m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 130m SDR17 PN10 PE 12.5kg
+14014020,"Riffled collector 2x40mm 140m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 140m SDR17 PN10 PE 12.5kg
+14015020,"Riffled collector 2x40mm 150m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 150m SDR17 PN10 PE 12.5kg
+14016020,"Riffled collector 2x40mm 160m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 160m SDR17 PN10 PE 12.5kg
+14017020,"Riffled collector 2x40mm 170m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 170m SDR17 PN10 PE 12.5kg
+14018020,"Riffled collector 2x40mm 180m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 180m SDR17 PN10 PE 12.5kg
+14019020,"Riffled collector 2x40mm 190m SDR17 PN10 included weight in PE 12,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 190m SDR17 PN10 PE 12.5kg
+14020020,Riffled collector 2x40mm 200m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 200m SDR17 PN10 PE 25kg
+14021020,Riffled collector 2x40mm 210m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 210m SDR17 PN10 PE 25kg
+14022020,Riffled collector 2x40mm 220m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 220m SDR17 PN10 PE 25kg
+14023020,Riffled collector 2x40mm 230m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 230m SDR17 PN10 PE 25kg
+14024020,Riffled collector 2x40mm 240m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 240m SDR17 PN10 PE 25kg
+14025020,Riffled collector 2x40mm 250m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 250m SDR17 PN10 PE 25kg
+14026020,Riffled collector 2x40mm 260m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 260m SDR17 PN10 PE 25kg
+14027020,Riffled collector 2x40mm 270m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 270m SDR17 PN10 PE 25kg
+14028020,Riffled collector 2x40mm 280m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 280m SDR17 PN10 PE 25kg
+14029020,Riffled collector 2x40mm 290m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 290m SDR17 PN10 PE 25kg
+14030020,Riffled collector 2x40mm 300m SDR17 PN10 included weight in PE 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 300m SDR17 PN10 PE 25kg
+14031020,"Riffled collector 2x40mm 310m SDR17 PN10 included weight in PE 37,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 310m SDR17 PN10 PE 37.5kg
+14032020,"Riffled collector 2x40mm 320m SDR17 PN10 included weight in PE 37,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 320m SDR17 PN10 PE 37.5kg
+14033020,"Riffled collector 2x40mm 330m SDR17 PN10 included weight in PE 37,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 330m SDR17 PN10 PE 37.5kg
+14034020,"Riffled collector 2x40mm 340m SDR17 PN10 included weight in PE 37,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 340m SDR17 PN10 PE 37.5kg
+14035020,"Riffled collector 2x40mm 350m SDR17 PN10 included weight in PE 37,5kg",Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 350m SDR17 PN10 PE 37.5kg
+14036020,Riffled collector 2x40mm 360m SDR17 PN10 included weight in PE 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 360m SDR17 PN10 PE 50kg
+14037020,Riffled collector 2x40mm 370m SDR17 PN10 included weight in PE 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 370m SDR17 PN10 PE 50kg
+14038020,Riffled collector 2x40mm 380m SDR17 PN10 included weight in PE 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 380m SDR17 PN10 PE 50kg
+14039020,Riffled collector 2x40mm 390m SDR17 PN10 included weight in PE 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 390m SDR17 PN10 PE 50kg
+14040020,Riffled collector 2x40mm 400m SDR17 PN10 included weight in PE 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x40 400m SDR17 PN10 PE 50kg
+14500010,Collector 2x45mm custom length SDR17 PN10,Collector,Collector,Meter,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 custom length SDR17 PN10
+14520010,Collector 2x45mm 200m SDR17 PN10 included weight in steel 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 200m SDR17 PN10 steel 25kg
+14521010,Collector 2x45mm 210m SDR17 PN10 included weight in steel 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 210m SDR17 PN10 steel 25kg
+14522010,Collector 2x45mm 220m SDR17 PN10 included weight in steel 30kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 220m SDR17 PN10 steel 30kg
+14523010,Collector 2x45mm 230m SDR17 PN10 included weight in steel 30kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 230m SDR17 PN10 steel 30kg
+14524010,Collector 2x45mm 240m SDR17 PN10 included weight in steel 30kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 240m SDR17 PN10 steel 30kg
+14525010,Collector 2x45mm 250m SDR17 PN10 included weight in steel 30kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 250m SDR17 PN10 steel 30kg
+14526010,Collector 2x45mm 260m SDR17 PN10 included weight in steel 35kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 260m SDR17 PN10 steel 35kg
+14527010,Collector 2x45mm 270m SDR17 PN10 included weight in steel 35kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 270m SDR17 PN10 steel 35kg
+14528010,Collector 2x45mm 280m SDR17 PN10 included weight in steel 35kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 280m SDR17 PN10 steel 35kg
+14529010,Collector 2x45mm 290m SDR17 PN10 included weight in steel 35kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 290m SDR17 PN10 steel 35kg
+14530010,Collector 2x45mm 300m SDR17 PN10 included weight in steel 35kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 300m SDR17 PN10 steel 35kg
+14531010,Collector 2x45mm 310m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 310m SDR17 PN10 steel 40kg
+14532010,Collector 2x45mm 320m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 320m SDR17 PN10 steel 40kg
+14533010,Collector 2x45mm 330m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 330m SDR17 PN10 steel 40kg
+14534010,Collector 2x45mm 340m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 340m SDR17 PN10 steel 40kg
+14535010,Collector 2x45mm 350m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 350m SDR17 PN10 steel 40kg
+14536010,Collector 2x45mm 360m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 360m SDR17 PN10 steel 40kg
+14537010,Collector 2x45mm 370m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 370m SDR17 PN10 steel 40kg
+14538010,Collector 2x45mm 380m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 380m SDR17 PN10 steel 40kg
+14539010,Collector 2x45mm 390m SDR17 PN10 included weight in steel 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 390m SDR17 PN10 steel 50kg
+14540010,Collector 2x45mm 400m SDR17 PN10 included weight in steel 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 400m SDR17 PN10 steel 50kg
+14541010,Collector 2x45mm 410m SDR17 PN10 included weight in steel 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 410m SDR17 PN10 steel 50kg
+14542010,Collector 2x45mm 420m SDR17 PN10 included weight in steel 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 420m SDR17 PN10 steel 50kg
+14543010,Collector 2x45mm 430m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 430m SDR17 PN10 steel 55kg
+14544010,Collector 2x45mm 440m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 440m SDR17 PN10 steel 55kg
+14545010,Collector 2x45mm 450m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 450m SDR17 PN10 steel 55kg
+14546010,Collector 2x45mm 460m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 460m SDR17 PN10 steel 55kg
+14547010,Collector 2x45mm 470m SDR17 PN10 included weight in steel 60kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 470m SDR17 PN10 steel 60kg
+14548010,Collector 2x45mm 480m SDR17 PN10 included weight in steel 60kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 480m SDR17 PN10 steel 60kg
+14549010,Collector 2x45mm 490m SDR17 PN10 included weight in steel 60kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 490m SDR17 PN10 steel 60kg
+14550010,Collector 2x45mm 500m SDR17 PN10 included weight in steel 60kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x45 500m SDR17 PN10 steel 60kg
+14500020,Riffled collector 2x45mm custom length SDR17 PN10,Collector,Collector,Meter,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 custom length SDR17 PN10
+14520020,Riffled collector 2x45mm 200m SDR17 PN10 included weight in steel 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 200m SDR17 PN10 steel 25kg
+14521020,Riffled collector 2x45mm 210m SDR17 PN10 included weight in steel 25kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 210m SDR17 PN10 steel 25kg
+14522020,Riffled collector 2x45mm 220m SDR17 PN10 included weight in steel 30kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 220m SDR17 PN10 steel 30kg
+14523020,Riffled collector 2x45mm 230m SDR17 PN10 included weight in steel 30kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 230m SDR17 PN10 steel 30kg
+14524020,Riffled collector 2x45mm 240m SDR17 PN10 included weight in steel 30kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 240m SDR17 PN10 steel 30kg
+14525020,Riffled collector 2x45mm 250m SDR17 PN10 included weight in steel 30kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 250m SDR17 PN10 steel 30kg
+14526020,Riffled collector 2x45mm 260m SDR17 PN10 included weight in steel 35kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 260m SDR17 PN10 steel 35kg
+14527020,Riffled collector 2x45mm 270m SDR17 PN10 included weight in steel 35kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 270m SDR17 PN10 steel 35kg
+14528020,Riffled collector 2x45mm 280m SDR17 PN10 included weight in steel 35kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 280m SDR17 PN10 steel 35kg
+14529020,Riffled collector 2x45mm 290m SDR17 PN10 included weight in steel 35kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 290m SDR17 PN10 steel 35kg
+14530020,Riffled collector 2x45mm 300m SDR17 PN10 included weight in steel 35kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 300m SDR17 PN10 steel 35kg
+14531020,Riffled collector 2x45mm 310m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 310m SDR17 PN10 steel 40kg
+14532020,Riffled collector 2x45mm 320m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 320m SDR17 PN10 steel 40kg
+14533020,Riffled collector 2x45mm 330m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 330m SDR17 PN10 steel 40kg
+14534020,Riffled collector 2x45mm 340m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 340m SDR17 PN10 steel 40kg
+14535020,Riffled collector 2x45mm 350m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 350m SDR17 PN10 steel 40kg
+14536020,Riffled collector 2x45mm 360m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 360m SDR17 PN10 steel 40kg
+14537020,Riffled collector 2x45mm 370m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 370m SDR17 PN10 steel 40kg
+14538020,Riffled collector 2x45mm 380m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 380m SDR17 PN10 steel 40kg
+14539020,Riffled collector 2x45mm 390m SDR17 PN10 included weight in steel 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 390m SDR17 PN10 steel 50kg
+14540020,Riffled collector 2x45mm 400m SDR17 PN10 included weight in steel 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 400m SDR17 PN10 steel 50kg
+14541020,Riffled collector 2x45mm 410m SDR17 PN10 included weight in steel 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 410m SDR17 PN10 steel 50kg
+14542020,Riffled collector 2x45mm 420m SDR17 PN10 included weight in steel 50kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 420m SDR17 PN10 steel 50kg
+14543020,Riffled collector 2x45mm 430m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 430m SDR17 PN10 steel 55kg
+14544020,Riffled collector 2x45mm 440m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 440m SDR17 PN10 steel 55kg
+14545020,Riffled collector 2x45mm 450m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 450m SDR17 PN10 steel 55kg
+14546020,Riffled collector 2x45mm 460m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 460m SDR17 PN10 steel 55kg
+14547020,Riffled collector 2x45mm 470m SDR17 PN10 included weight in steel 60kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 470m SDR17 PN10 steel 60kg
+14548020,Riffled collector 2x45mm 480m SDR17 PN10 included weight in steel 60kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 480m SDR17 PN10 steel 60kg
+14549020,Riffled collector 2x45mm 490m SDR17 PN10 included weight in steel 60kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 490m SDR17 PN10 steel 60kg
+14550020,Riffled collector 2x45mm 500m SDR17 PN10 included weight in steel 60kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x45 500m SDR17 PN10 steel 60kg
+15000010,Collector 2x50mm custom length SDR17 PN10,Collector,Collector,Meter,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 custom length SDR17 PN10
+15025010,Collector 2x50mm 250m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 250m SDR17 PN10 steel 40kg
+15026010,Collector 2x50mm 260m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 260m SDR17 PN10 steel 40kg
+15027010,Collector 2x50mm 270m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 270m SDR17 PN10 steel 40kg
+15028010,Collector 2x50mm 280m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 280m SDR17 PN10 steel 40kg
+15029010,Collector 2x50mm 290m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 290m SDR17 PN10 steel 40kg
+15030010,Collector 2x50mm 300m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 300m SDR17 PN10 steel 40kg
+15031010,Collector 2x50mm 310m SDR17 PN10 included weight in steel 45kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 310m SDR17 PN10 steel 45kg
+15032010,Collector 2x50mm 320m SDR17 PN10 included weight in steel 45kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 320m SDR17 PN10 steel 45kg
+15033010,Collector 2x50mm 330m SDR17 PN10 included weight in steel 45kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 330m SDR17 PN10 steel 45kg
+15034010,Collector 2x50mm 340m SDR17 PN10 included weight in steel 45kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 340m SDR17 PN10 steel 45kg
+15035010,Collector 2x50mm 350m SDR17 PN10 included weight in steel 45kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 350m SDR17 PN10 steel 45kg
+15036010,Collector 2x50mm 360m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 360m SDR17 PN10 steel 55kg
+15037010,Collector 2x50mm 370m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 370m SDR17 PN10 steel 55kg
+15038010,Collector 2x50mm 380m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 380m SDR17 PN10 steel 55kg
+15039010,Collector 2x50mm 390m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 390m SDR17 PN10 steel 55kg
+15040010,Collector 2x50mm 400m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 400m SDR17 PN10 steel 55kg
+15041010,Collector 2x50mm 410m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 410m SDR17 PN10 steel 55kg
+15042010,Collector 2x50mm 420m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 420m SDR17 PN10 steel 55kg
+15043010,Collector 2x50mm 430m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 430m SDR17 PN10 steel 55kg
+15044010,Collector 2x50mm 440m SDR17 PN10 included weight in steel 60kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 440m SDR17 PN10 steel 60kg
+15045010,Collector 2x50mm 450m SDR17 PN10 included weight in steel 60kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 450m SDR17 PN10 steel 60kg
+15046010,Collector 2x50mm 460m SDR17 PN10 included weight in steel 60kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 460m SDR17 PN10 steel 60kg
+15047010,Collector 2x50mm 470m SDR17 PN10 included weight in steel 65kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 470m SDR17 PN10 steel 65kg
+15048010,Collector 2x50mm 480m SDR17 PN10 included weight in steel 65kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 480m SDR17 PN10 steel 65kg
+15049010,Collector 2x50mm 490m SDR17 PN10 included weight in steel 65kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 490m SDR17 PN10 steel 65kg
+15050010,Collector 2x50mm 500m SDR17 PN10 included weight in steel 65kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Collector 2x50 500m SDR17 PN10 steel 65kg
+15000020,Riffled collector 2x50mm custom length SDR17 PN10,Collector,Collector,Meter,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 custom length SDR17 PN10
+15025020,Riffled collector 2x50mm 250m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 250m SDR17 PN10 steel 40kg
+15026020,Riffled collector 2x50mm 260m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 260m SDR17 PN10 steel 40kg
+15027020,Riffled collector 2x50mm 270m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 270m SDR17 PN10 steel 40kg
+15028020,Riffled collector 2x50mm 280m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 280m SDR17 PN10 steel 40kg
+15029020,Riffled collector 2x50mm 290m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 290m SDR17 PN10 steel 40kg
+15030020,Riffled collector 2x50mm 300m SDR17 PN10 included weight in steel 40kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 300m SDR17 PN10 steel 40kg
+15031020,Riffled collector 2x50mm 310m SDR17 PN10 included weight in steel 45kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 310m SDR17 PN10 steel 45kg
+15032020,Riffled collector 2x50mm 320m SDR17 PN10 included weight in steel 45kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 320m SDR17 PN10 steel 45kg
+15033020,Riffled collector 2x50mm 330m SDR17 PN10 included weight in steel 45kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 330m SDR17 PN10 steel 45kg
+15034020,Riffled collector 2x50mm 340m SDR17 PN10 included weight in steel 45kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 340m SDR17 PN10 steel 45kg
+15035020,Riffled collector 2x50mm 350m SDR17 PN10 included weight in steel 45kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 350m SDR17 PN10 steel 45kg
+15036020,Riffled collector 2x50mm 360m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 360m SDR17 PN10 steel 55kg
+15037020,Riffled collector 2x50mm 370m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 370m SDR17 PN10 steel 55kg
+15038020,Riffled collector 2x50mm 380m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 380m SDR17 PN10 steel 55kg
+15039020,Riffled collector 2x50mm 390m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 390m SDR17 PN10 steel 55kg
+15040020,Riffled collector 2x50mm 400m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 400m SDR17 PN10 steel 55kg
+15041020,Riffled collector 2x50mm 410m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 410m SDR17 PN10 steel 55kg
+15042020,Riffled collector 2x50mm 420m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 420m SDR17 PN10 steel 55kg
+15043020,Riffled collector 2x50mm 430m SDR17 PN10 included weight in steel 55kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 430m SDR17 PN10 steel 55kg
+15044020,Riffled collector 2x50mm 440m SDR17 PN10 included weight in steel 60kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 440m SDR17 PN10 steel 60kg
+15045020,Riffled collector 2x50mm 450m SDR17 PN10 included weight in steel 60kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 450m SDR17 PN10 steel 60kg
+15046020,Riffled collector 2x50mm 460m SDR17 PN10 included weight in steel 60kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 460m SDR17 PN10 steel 60kg
+15047020,Riffled collector 2x50mm 470m SDR17 PN10 included weight in steel 65kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 470m SDR17 PN10 steel 65kg
+15048020,Riffled collector 2x50mm 480m SDR17 PN10 included weight in steel 65kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 480m SDR17 PN10 steel 65kg
+15049020,Riffled collector 2x50mm 490m SDR17 PN10 included weight in steel 65kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 490m SDR17 PN10 steel 65kg
+15050020,Riffled collector 2x50mm 500m SDR17 PN10 included weight in steel 65kg,Collector,Collector,PC,VEN01111 Debe Flow Group AB,100,20,Riffled collector 2x50 500m SDR17 PN10 steel 65kg
+22112400,"Manifold 12 collectors, STAD DN25, 40mm connections",Chamber and manifold,Chamber and manifold,PC,VEN01111 Debe Flow Group AB,100,20,"Manifold 12 coll, STAD DN25, 40mm conn"
+41140400,Casing lid 140/2x40mm,Accessories,Warehouse,PC,VEN01111 Debe Flow Group AB,100,20,Casing lid 140/2x40mm
+41140450,Casing lid 140/2x45mm,Accessories,Warehouse,PC,VEN01111 Debe Flow Group AB,100,20,Casing lid 140/2x45mm
+41140500,Casing lid 140/2x50mm,Accessories,Warehouse,PC,VEN01111 Debe Flow Group AB,100,20,Casing lid 140/2x50mm
+41170400,Casing lid 170/2x40mm,Accessories,Warehouse,PC,VEN01111 Debe Flow Group AB,100,20,Casing lid 170/2x40mm
+41170450,Casing lid 170/2x45mm,Accessories,Warehouse,PC,VEN01111 Debe Flow Group AB,100,20,Casing lid 170/2x45mm
+41170500,Casing lid 170/2x50mm,Accessories,Warehouse,PC,VEN01111 Debe Flow Group AB,100,20,Casing lid 170/2x50mm
+41000000,Casing lid without holes,Accessories,Warehouse,PC,VEN01111 Debe Flow Group AB,100,20,Casing lid without holes
+43000010,Culvert pipe 6m 315mm,Accessories,Warehouse,PC,VEN01128 Meltex Oy Plastcs,100,20,Culvert pipe 6m 315mm
+43000020,Culvert pipe lid 315mm,Accessories,Warehouse,PC,VEN01128 Meltex Oy Plastcs,100,20,Culvert pipe lid 315mm
+43000060,Cleaning cloth for plastic pipe,Accessories,Warehouse,PC,VEN00942 BRØDRENE DAHL AS,100,20,Cleaning cloth for plastic pipe
+44000100,Plastic canister 10l,Accessories,Warehouse,PC,VEN01033 Ivar Holte AS,100,20,Plastic canister 10l
+44000200,Plastic canister 25l,Accessories,Warehouse,PC,VEN01033 Ivar Holte AS,100,20,Plastic canister 25l
+44000300,Plastic canister lid for 10l,Accessories,Warehouse,PC,VEN01033 Ivar Holte AS,100,20,Plastic canister lid for 10l
+44000400,Plastic canister lid for 25l,Accessories,Warehouse,PC,VEN01033 Ivar Holte AS,100,20,Plastic canister lid for 25l
+50001020,Butterfly valve DN50,Pipe part,Warehouse,PC,VEN00942 BRØDRENE DAHL AS,100,20,Butterfly valve DN50
+50001030,Butterfly valve DN65,Pipe part,Warehouse,PC,VEN00942 BRØDRENE DAHL AS,100,20,Butterfly valve DN65
+50001040,Butterfly valve DN80,Pipe part,Warehouse,PC,VEN00942 BRØDRENE DAHL AS,100,20,Butterfly valve DN80
+50001050,Butterfly valve DN100,Pipe part,Warehouse,PC,VEN00942 BRØDRENE DAHL AS,100,20,Butterfly valve DN100
+50001060,Butterfly valve DN115,Pipe part,Warehouse,PC,VEN00942 BRØDRENE DAHL AS,100,20,Butterfly valve DN115
+50001070,Butterfly valve DN125,Pipe part,Warehouse,PC,VEN00942 BRØDRENE DAHL AS,100,20,Butterfly valve DN125
+50001080,Butterfly valve DN150,Pipe part,Warehouse,PC,VEN00942 BRØDRENE DAHL AS,100,20,Butterfly valve DN150
+50001090,Butterfly valve DN200,Pipe part,Warehouse,PC,VEN00942 BRØDRENE DAHL AS,100,20,Butterfly valve DN200
+50401010,Coupler 40mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Coupler 40mm
+50401020,Elbow 40mm 45 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 40mm 45 degrees
+50401030,Elbow 40mm 90 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 40mm 90 degrees
+50401040,End cap 40mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,End cap 40mm
+50401050,Tee 40-40-40mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Tee 40-40-40mm
+50451010,Coupler 45mm,Pipe part,Warehouse,PC,VEN00963 ABK-Qviller AS,100,20,Coupler 45mm
+50451020,Elbow 45mm 45 degrees,Pipe part,Warehouse,PC,VEN00963 ABK-Qviller AS,100,20,Elbow 45mm 45 degrees
+50451030,Elbow 45mm 90 degrees,Pipe part,Warehouse,PC,VEN00963 ABK-Qviller AS,100,20,Elbow 45mm 90 degrees
+50451040,End cap 45mm,Pipe part,Warehouse,PC,VEN00963 ABK-Qviller AS,100,20,End cap 45mm
+50451050,Tee 45-45-45mm,Pipe part,Warehouse,PC,VEN00963 ABK-Qviller AS,100,20,Tee 45-45-45mm
+50451080,Reducer 45>40mm,Pipe part,Warehouse,PC,VEN00963 ABK-Qviller AS,100,20,Reducer 45>40mm
+50501010,Coupler 50mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Coupler 50mm
+50501020,Elbow 50mm 45 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 50mm 45 degrees
+50501030,Elbow 50mm 90 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 50mm 90 degrees
+50501040,End cap 50mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,End cap 50mm
+50501050,Tee 50-50-50mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Tee 50-50-50mm
+50501080,Reducer 50>40mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 50>40mm
+50501082,Reducer 50>45mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 50>45mm
+50631010,Coupler 63mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Coupler 63mm
+50631020,Elbow 63mm 45 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 63mm 45 degrees
+50631030,Elbow 63mm 90 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 63mm 90 degrees
+50631040,End cap 63mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,End cap 63mm
+50631050,Tee 63-63-63mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Tee 63-63-63mm
+50631060,Collar 63mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Collar 63mm
+50631070,Flange 63mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Flange 63mm
+50631080,Reducer 63>40mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 63>40mm
+50631081,Reducer 63>50mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 63>50mm
+50751010,Coupler 75mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Coupler 75mm
+50751020,Elbow 75mm 45 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 75mm 45 degrees
+50751030,Elbow 75mm 90 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 75mm 90 degrees
+50751040,End cap 75mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,End cap 75mm
+50751050,Tee 75-75-75mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Tee 75-75-75mm
+50751060,Collar 75mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Collar 75mm
+50751070,Flange 75mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Flange 75mm
+50751080,Reducer 75>50mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 75>50mm
+50751081,Reducer 75>63mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 75>63mm
+50901010,Coupler 90mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Coupler 90mm
+50901020,Elbow 90mm 45 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 90mm 45 degrees
+50901030,Elbow 90mm 90 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 90mm 90 degrees
+50901040,End cap 90mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,End cap 90mm
+50901050,Tee 90-90-90mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Tee 90-90-90mm
+50901060,Collar 90mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Collar 90mm
+50901070,Flange 90mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Flange 90mm
+50901080,Reducer 90>63mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 90>63mm
+50901081,Reducer 90>75mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 90>75mm
+51101010,Coupler 110mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Coupler 110mm
+51101020,Elbow 110mm 45 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 110mm 45 degrees
+51101030,Elbow 110mm 90 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 110mm 90 degrees
+51101040,End cap 110mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,End cap 110mm
+51101051,Tee 110-110-110mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Tee 110-110-110mm
+51101060,Collar 110mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Collar 110mm
+51101070,Flange 110mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Flange 110mm
+51101080,Reducer 110>75mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 110>75mm
+51101081,Reducer 110>90mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 110>90mm
+51251010,Coupler 125mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Coupler 125mm
+51251020,Elbow 125mm 45 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 125mm 45 degrees
+51251030,Elbow 125mm 90 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 125mm 90 degrees
+51251040,End cap 125mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,End cap 125mm
+51251050,Tee 125-125-125mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Tee 125-125-125mm
+51251060,Collar 125mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Collar 125mm
+51251070,Flange 125mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Flange 125mm
+51251080,Reducer 125>90mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 125>90mm
+51251081,Reducer 125>110mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 125>110mm
+51401010,Coupler 140mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Coupler 140mm
+51401020,Elbow 140mm 45 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 140mm 45 degrees
+51401030,Elbow 140mm 90 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 140mm 90 degrees
+51401040,End cap 140mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,End cap 140mm
+51401050,Tee 140-140-140mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Tee 140-140-140mm
+51401060,Collar 140mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Collar 140mm
+51401070,Flange 140mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Flange 140mm
+51401080,Reducer 140>110mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 140>110mm
+51401081,Reducer 140>125mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 140>125mm
+51601010,Coupler 160mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Coupler 160mm
+51601020,Elbow 160mm 45 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 160mm 45 degrees
+51601030,Elbow 160mm 90 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 160mm 90 degrees
+51601040,End cap 160mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,End cap 160mm
+51601052,Tee 160-160-160mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Tee 160-160-160mm
+51601060,Collar 160mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Collar 160mm
+51601070,Flange 160mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Flange 160mm
+51601080,Reducer 160>90mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 160>90mm
+51601081,Reducer 160>110mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 160>110mm
+51601082,Reducer 160>125mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 160>125mm
+51601083,Reducer 160>140mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 160>140mm
+51801010,Coupler 180mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Coupler 180mm
+51801020,Elbow 180mm 45 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 180mm 45 degrees
+51801030,Elbow 180mm 90 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 180mm 90 degrees
+51801040,End cap 180mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,End cap 180mm
+51801050,Tee 180-180-180mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Tee 180-180-180mm
+51801060,Collar 180mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Collar 180mm
+51801070,Flange 180mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Flange 180mm
+51801080,Reducer 180>125mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 180>125mm
+51801081,Reducer 180>140mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 180>140mm
+51801082,Reducer 180>160mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 180>160mm
+52001010,Coupler 200mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Coupler 200mm
+52001020,Elbow 200mm 45 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 200mm 45 degrees
+52001030,Elbow 200mm 90 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 200mm 90 degrees
+52001040,End cap 200mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,End cap 200mm
+52001050,Tee 200-200-200mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Tee 200-200-200mm
+52001060,Collar 200mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Collar 200mm
+52001070,Flange 200mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Flange 200mm
+52001080,Reducer 200>160mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 200>160mm
+52001081,Reducer 200>180mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 200>180mm
+52251010,Coupler 225mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Coupler 225mm
+52251020,Elbow 225mm 45 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 225mm 45 degrees
+52251030,Elbow 225mm 90 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 225mm 90 degrees
+52251040,End cap 225mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,End cap 225mm
+52251050,Tee 225-225-225mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Tee 225-225-225mm
+52251060,Collar 225mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Collar 225mm
+52251070,Flange 225mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Flange 225mm
+52251080,Reducer 225>200mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 225>200mm
+52501010,Coupler 250mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Coupler 250mm
+52501020,Elbow 250mm 45 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 250mm 45 degrees
+52501030,Elbow 250mm 90 degrees,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Elbow 250mm 90 degrees
+52501040,End cap 250mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,End cap 250mm
+52501050,Tee 250-250-250mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Tee 250-250-250mm
+52501060,Collar 250mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Collar 250mm
+52501070,Flange 250mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Flange 250mm
+52501080,Reducer 250>225mm,Pipe part,Warehouse,PC,VEN00943 Eurofusion AS,100,20,Reducer 250>225mm
+61040000,Cellular rubber insulation 2m for pipe 40x19mm,Insulation,Warehouse,Meter,,100,20,Cellular rubber insulation 2m for pipe 40x19mm
+61045000,Cellular rubber insulation 2m for pipe 45x19mm,Insulation,Warehouse,Meter,,100,20,Cellular rubber insulation 2m for pipe 45x19mm
+61050000,Cellular rubber insulation 2m for pipe 50x19mm,Insulation,Warehouse,Meter,,100,20,Cellular rubber insulation 2m for pipe 50x19mm
+61063000,Cellular rubber insulation 2m for pipe 63x19mm,Insulation,Warehouse,Meter,,100,20,Cellular rubber insulation 2m for pipe 63x19mm
+61075000,Cellular rubber insulation 2m for pipe 75x19mm,Insulation,Warehouse,Meter,,100,20,Cellular rubber insulation 2m for pipe 75x19mm
+61090000,Cellular rubber insulation 2m for pipe 90x19mm,Insulation,Warehouse,Meter,,100,20,Cellular rubber insulation 2m for pipe 90x19mm
+61110000,Cellular rubber insulation 2m for pipe 110x19mm,Insulation,Warehouse,Meter,,100,20,Cellular rubber insulation 2m for pipe 110x19mm
+61125000,Cellular rubber insulation 2m for pipe 125x19mm,Insulation,Warehouse,Meter,,100,20,Cellular rubber insulation 2m for pipe 125x19mm
+61140000,Cellular rubber insulation 2m for pipe 140x19mm,Insulation,Warehouse,Meter,,100,20,Cellular rubber insulation 2m for pipe 140x19mm
+61160000,Cellular rubber insulation 2m for pipe 160x19mm,Insulation,Warehouse,Meter,,100,20,Cellular rubber insulation 2m for pipe 160x19mm
+61000100,Cellular rubber insulation mat width 1m,Insulation,Warehouse,Meter,,100,20,Cellular rubber insulation mat width 1m
+61000200,Cellular rubber insulation tape,Insulation,Warehouse,PC,,100,20,Cellular rubber insulation tape
+62040000,Cellular plastic insulation 2m for pipe 40x19mm,Insulation,Warehouse,Meter,,100,20,Cellular plastic insulation 2m for pipe 40x19mm
+62045000,Cellular plastic insulation 2m for pipe 45x19mm,Insulation,Warehouse,Meter,,100,20,Cellular plastic insulation 2m for pipe 45x19mm
+62050000,Cellular plastic insulation 2m for pipe 50x19mm,Insulation,Warehouse,Meter,,100,20,Cellular plastic insulation 2m for pipe 50x19mm
+62063000,Cellular plastic insulation 2m for pipe 63x19mm,Insulation,Warehouse,Meter,,100,20,Cellular plastic insulation 2m for pipe 63x19mm
+62075000,Cellular plastic insulation 2m for pipe 75x19mm,Insulation,Warehouse,Meter,,100,20,Cellular plastic insulation 2m for pipe 75x19mm
+62090000,Cellular plastic insulation 2m for pipe 90x19mm,Insulation,Warehouse,Meter,,100,20,Cellular plastic insulation 2m for pipe 90x19mm
+62110000,Cellular plastic insulation 2m for pipe 110x19mm,Insulation,Warehouse,Meter,,100,20,Cellular plastic insulation 2m for pipe 110x19mm
+62125000,Cellular plastic insulation 2m for pipe 125x19mm,Insulation,Warehouse,Meter,,100,20,Cellular plastic insulation 2m for pipe 125x19mm
+62140000,Cellular plastic insulation 2m for pipe 140x19mm,Insulation,Warehouse,Meter,,100,20,Cellular plastic insulation 2m for pipe 140x19mm
+62160000,Cellular plastic insulation 2m for pipe 160x19mm,Insulation,Warehouse,Meter,,100,20,Cellular plastic insulation 2m for pipe 160x19mm
+65000010,Tubolit special,Insulation,Warehouse,Meter,,100,20,Tubolit special
+65040000,Tubolit insulation 2m for pipe 42x9mm,Insulation,Warehouse,Meter,VEN01111 Debe Flow Group AB,100,20,Tubolit insulation 2m for pipe 42x9mm
+65050000,Tubolit insulation 2m for pipe 54x13mm,Insulation,Warehouse,Meter,VEN01111 Debe Flow Group AB,100,20,Tubolit insulation 2m for pipe 54x13mm
+65090000,Tubolit insulation 2m for pipe 89x13mm,Insulation,Warehouse,Meter,VEN01111 Debe Flow Group AB,100,20,Tubolit insulation 2m for pipe 89x13mm
+65110000,Tubolit insulation 2m for pipe 114x13mm,Insulation,Warehouse,Meter,VEN01111 Debe Flow Group AB,100,20,Tubolit insulation 2m for pipe 114x13mm
+70001000,"Airhose 2"" AtlasCopco",Drilling equipment,Warehouse,Meter,VEN01001 OSLO TRYKKLUFT AS,100,20,"Airhose 2"" AtlasCopco"
+70002000,Aluminium sulphate,Drilling equipment,Warehouse,Kilogram,,100,20,Aluminium sulphate
+70003001,Leca cement bag,Drilling equipment,Warehouse,PC,VEN03665 Hydrobar Sweden AB (VEN to AS),100,20,Leca cement bag
+70003002,Leca plug,Drilling equipment,Warehouse,PC,VEN03665 Hydrobar Sweden AB (VEN to AS),100,20,Leca plug
+70003003,Casing sealant patron,Drilling equipment,Warehouse,PC,,100,20,Casing sealant patron
+71000010,"Drill bit 105mm for 4"" hammer",Drilling equipment,Warehouse,PC,VEN00991 EPIROC NORGE AS,100,20,"Drill bit 105mm for 4"" hammer"
+71000020,"Drill bit 110mm for 4"" hammer",Drilling equipment,Warehouse,PC,VEN00991 EPIROC NORGE AS,100,20,"Drill bit 110mm for 4"" hammer"
+71000030,"Drill bit 115mm for 4"" hammer",Drilling equipment,Warehouse,PC,VEN00991 EPIROC NORGE AS,100,20,"Drill bit 115mm for 4"" hammer"
+71000040,"Drill bit 125mm for 4"" hammer",Drilling equipment,Warehouse,PC,VEN00991 EPIROC NORGE AS,100,20,"Drill bit 125mm for 4"" hammer"
+71000050,"Drill bit 130mm for 4"" hammer",Drilling equipment,Warehouse,PC,VEN00991 EPIROC NORGE AS,100,20,"Drill bit 130mm for 4"" hammer"
+71000060,"Drill bit 135mm for 4"" hammer",Drilling equipment,Warehouse,PC,VEN00991 EPIROC NORGE AS,100,20,"Drill bit 135mm for 4"" hammer"
+71000070,"Drill bit 140mm for 5"" hammer",Drilling equipment,Warehouse,PC,VEN00991 EPIROC NORGE AS,100,20,"Drill bit 140mm for 5"" hammer"
+71000001,"Drill bit special for 4"" hammer",Drilling equipment,Warehouse,PC,VEN00991 EPIROC NORGE AS,100,20,"Drill bit special for 4"" hammer"
+71000002,"Drill bit special for 5"" hammer",Drilling equipment,Warehouse,PC,VEN00991 EPIROC NORGE AS,100,20,"Drill bit special for 5"" hammer"
+72000010,Drill rod 3m eX-FLOW,Drilling equipment,Warehouse,PC,,100,20,Drill rod 3m eX-FLOW
+72000020,Drill rod 3m regular,Drilling equipment,Warehouse,PC,,100,20,Drill rod 3m regular
+72000030,Drill rod 6m,Drilling equipment,Warehouse,PC,,100,20,Drill rod 6m
+70004000,Drilling rubber 210/50mm,Drilling equipment,Warehouse,PC,VEN01390 PIREX Vattenskärning AB (Rototec AS),100,20,Drilling rubber 210/50mm
+73000010,"Hammer 4"" MP40-MQ",Drilling equipment,Warehouse,PC,VEN00996 MINCON NORDIC OY (Rototec AS),100,20,"Hammer 4"" MP40-MQ"
+75000011,Ring bit 140mm,Drilling equipment,Warehouse,PC,VEN00996 MINCON NORDIC OY (Rototec AS),100,20,Ring bit 140mm
+76000011,"Steel pipe 139,7x4,0mm/3m",Drilling equipment,Warehouse,PC,VEN00942 BRØDRENE DAHL AS,100,20,"Steel pipe 139,7x4,0mm/3m"
+76000012,"Steel pipe 139,7x4,5mm/3m",Drilling equipment,Warehouse,PC,VEN00942 BRØDRENE DAHL AS,100,20,"Steel pipe 139,7x4,5mm/3m"
+76000013,"Steel pipe 139,7x5mm/3m",Drilling equipment,Warehouse,PC,VEN00942 BRØDRENE DAHL AS,100,20,"Steel pipe 139,7x5mm/3m"
+76000021,"Steel pipe 168,3x5mm/3m",Drilling equipment,Warehouse,PC,VEN00942 BRØDRENE DAHL AS,100,20,"Steel pipe 168,3x5mm/3m"
+77000010,Submersible pump 230V,Drilling equipment,Warehouse,PC,VEN02022 Malmbergs Elektriske AS,100,20,Submersible pump 230V
+77000021,Submersible pump 16A 400V,Drilling equipment,Warehouse,PC,VEN02022 Malmbergs Elektriske AS,100,20,Submersible pump 16A 400V
+77000031,Submersible pump 32A 400V,Drilling equipment,Warehouse,PC,VEN02022 Malmbergs Elektriske AS,100,20,Submersible pump 32A 400V
+78005010,"Water hose coupling 2"" male",Drilling equipment,Warehouse,PC,VEN01623 Swe-Finn Trading Company AB,100,20,"Water hose coupling 2"" male"
+78005020,"Water hose coupling 2"" female",Drilling equipment,Warehouse,PC,VEN00982 Hydroscand AS,100,20,"Water hose coupling 2"" female"
+78005030,"Water hose coupling 2"" clamp",Drilling equipment,Warehouse,Meter,VEN00982 Hydroscand AS,100,20,"Water hose coupling 2"" clamp"
+70005000,"Water hose 2""",Drilling equipment,Warehouse,Meter,VEN00982 Hydroscand AS,100,20,"Water hose 2"""
+70006001,"Welding rod 2,5x350mm",Drilling equipment,Warehouse,Kilogram,VEN01063 Steel Tooling Jakobstad AB Oy,100,20,"Welding rod 2,5x350mm"
+70006002,"Welding rod 3,2x450mm",Drilling equipment,Warehouse,Kilogram,VEN01063 Steel Tooling Jakobstad AB Oy,100,20,"Welding rod 3,2x450mm"
+81000100,Adblue,Fuel,Warehouse,Liter,VEN00958 CIRCLE K NORGE AS,100,20,Adblue
+81000200,Diesel,Fuel,Warehouse,Liter,VEN00958 CIRCLE K NORGE AS,100,20,Diesel
+81000400,"Diesel, with reduced tax",Fuel,Warehouse,Liter,VEN00958 CIRCLE K NORGE AS,100,20,"Diesel, with reduced tax"
+82000100,Ethanol,Geothermal fluid,Warehouse,Liter,,100,20,Ethanol
+82000200,Glycol-based geothermal fluid,Geothermal fluid,Warehouse,Liter,,100,20,Glycol-based geothermal fluid
+82000300,Kilfrost,Geothermal fluid,Warehouse,Liter,,100,20,Kilfrost
+83000110,Compressor screw oil Paroil S,Other liquid,Warehouse,Liter,VEN01103 Atlas Copco Power Technique Nordic,100,20,Compressor screw oil Paroil S
+83000210,Coolant concentrate green,Other liquid,Warehouse,Liter,VEN01103 Atlas Copco Power Technique Nordic,100,20,Coolant concentrate green
+83000220,Coolant concentrate red,Other liquid,Warehouse,Liter,VEN00954 FUCHS LUBRICANTS NORWAY AS,100,20,Coolant concentrate red
+83000310,Gear box oil 80w-90,Other liquid,Warehouse,Liter,VEN00954 FUCHS LUBRICANTS NORWAY AS,100,20,Gear box oil 80w-90
+83000410,Hydraulic oil 46,Other liquid,Warehouse,Liter,VEN00954 FUCHS LUBRICANTS NORWAY AS,100,20,Hydraulic oil 46
+83000510,Motor oil 10w-40,Other liquid,Warehouse,Liter,VEN00954 FUCHS LUBRICANTS NORWAY AS,100,20,Motor oil 10w-40
+83000520,Motor oil 5w-30,Other liquid,Warehouse,Liter,VEN00954 FUCHS LUBRICANTS NORWAY AS,100,20,Motor oil 5w-30
+83000600,Window washer fluid,Other liquid,Warehouse,Liter,VEN02922 Driv energi AS,100,20,Window washer fluid
+,,,,,,,20,

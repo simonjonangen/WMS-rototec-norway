@@ -1,0 +1,1 @@
+from .data_analytics import data_analytics_bp

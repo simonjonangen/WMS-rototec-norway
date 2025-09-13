@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section id="hero" class="hero section dark-background">
+  <img src="{{ url_for('static', filename='assets/img/hero-bg.jpg') }}" alt="" data-aos="fade-in">
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="container section-title text-center" data-aos="fade-up">
+      <h2>All Users</h2>
+      <p>Manage and update user credentials and roles</p>
+    </div>
+
+    {% if users %}
+
+      <div class="table-responsive">
+        <table class="table table-hover table-striped align-middle text-center mb-0" style="border-radius: .5rem; overflow: hidden;">
+          <thead class="table-dark text-white">
+            <tr>
+              <th>Name</th>
+              <th>Username</th>
+              <th>Role</th>
+              <th>Added</th>
+              <th>Password</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in users %}
+            <tr>
+              <form method="POST" action="{{ url_for('view_users.update_user') }}">
+                <input type="hidden" name="user_id" value="{{ user.id }}">
+
+                <td>
+                  <input type="text" name="name" class="form-control form-control-sm" value="{{ user.name }}" required>
+                </td>
+                <td>
+                  <input type="text" name="email" class="form-control form-control-sm" value="{{ user.email }}" required>
+                </td>
+                <td style="min-width: 140px;">
+                  <select name="role" class="form-select form-select-sm" required>
+                    <option value="manager" {% if user.role == 'manager' %}selected{% endif %}>Manager</option>
+                    <option value="worker" {% if user.role == 'worker' %}selected{% endif %}>Worker</option>
+                  </select>
+                </td>
+                <td>{{ user.created_at[:16].replace('T', ' ') }}</td>
+                <td>
+                  <input type="text" name="pin" class="form-control form-control-sm" value="{{ user.pin }}">
+                </td>
+
+                <!-- Inline button, styled icon -->
+                <td class="text-center">
+                  <button type="submit" class="btn btn-sm btn-outline-success d-inline-flex align-items-center gap-1">
+                    <i class="bi bi-check-circle-fill" style="font-size: 1rem;"></i>
+                    <span class="d-none d-md-inline">Confirm</span>
+                  </button>
+                </td>
+              </form>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <p class="text-center text-white">No data.</p>
+    {% endif %}
+
+    <div class="text-center mt-4">
+      <button onclick="window.history.back();"
+              class="btn btn-outline-light btn-sm d-inline-flex align-items-center gap-1">
+        <i class="bi bi-arrow-left-circle"></i>
+        <span class="d-none d-md-inline">Back</span>
+      </button>
+    </div>
+  </div>
+</section>
+{% endblock %}

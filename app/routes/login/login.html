@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}Log in - {{ COMPANY_NAME }} WMS{% endblock %}
+
+{% block content %}
+<section id="hero" class="hero section dark-background">
+
+  <!-- Background image -->
+  <img src="{{ url_for('static', filename='assets/img/hero-bg.jpg') }}" alt="" data-aos="fade-in">
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <!-- Title block -->
+    <div class="container section-title text-center" data-aos="fade-up">
+      <h2>Log In</h2>
+      <p>Access your WMS dashboard</p>
+    </div>
+
+    <!-- Login Form -->
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form method="POST" action="{{ url_for('login.login') }}">
+          <div class="mb-3">
+            <label for="email" class="form-label text-white">Username</label>
+            <input type="text" class="form-control" name="email" id="email" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="pin" class="form-label text-white">Password</label>
+            <input type="password" class="form-control" name="pin" id="pin" required>
+          </div>
+
+          <!-- Icon-style submit button -->
+          <div class="row justify-content-center mt-4">
+            <div class="col-xl-4 col-md-4" data-aos="fade-up" data-aos-delay="300">
+              <button type="submit" class="w-100 border-0 bg-transparent p-0">
+                <div class="icon-box text-center py-3 text-white" style="cursor: pointer;">
+                  <i class="bi bi-box-arrow-in-right" style="font-size: 1.5rem;"></i>
+                  <h3 class="mt-2" style="font-size: 1rem;">
+                    Log In
+                  </h3>
+                </div>
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+{% endblock %}

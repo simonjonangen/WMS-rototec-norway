@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+  .bg-success {
+  background-color: #4CAF50 !important; /* or your desired green */
+  }
+</style>
+<section id="hero" class="hero section dark-background">
+
+  <!-- Background image -->
+  <img src="{{ url_for('static', filename='assets/img/hero-bg.jpg') }}" alt="" data-aos="fade-in">
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <!-- Title block styled and centered -->
+    <div class="container section-title text-center" data-aos="fade-up">
+      <h2>User Statistics</h2>
+      <p>Overview of activity and frequently used articles  – <strong>{{ username }}</strong> </p>
+    </div>
+
+    <!-- Summary Icons -->
+    <div class="row gy-4 justify-content-center mt-4" data-aos="fade-up" data-aos-delay="200">
+      <div class="col-xl-2 col-md-4">
+        <div class="icon-box text-center py-3">
+          <i class="bi bi-box-arrow-down"></i>
+          <h3 class="mt-2">Taken</h3>
+          <div class="stat-value">{{ stats.total_taken or 0 }}</div>
+        </div>
+      </div>
+      <div class="col-xl-2 col-md-4">
+        <div class="icon-box text-center py-3">
+          <i class="bi bi-arrow-up-circle"></i>
+          <h3 class="mt-2">Returned</h3>
+          <div class="stat-value">{{ stats.total_returned or 0 }}</div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-md-4">
+        <div class="icon-box text-center py-3">
+          <i class="bi bi-clock-history"></i>
+          <h3 class="mt-2">Last Active</h3>
+          <div class="stat-value">{{ stats.last_active or "No data" }}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Items Table -->
+    <div class="row justify-content-center mt-5" data-aos="fade-up" data-aos-delay="300">
+      <div class="col-lg-10">
+        <h4 class="text-light text-center mb-3">Top 5 Used</h4>
+
+        {% if stats.top_items %}
+        <div class="table-responsive">
+          <table class="table table-hover table-striped align-middle text-center mb-0" style="border-radius: .5rem; overflow: hidden;">
+            <thead class="table-dark text-white">
+              <tr>
+                <th>Article Number</th>
+                <th>Article</th>
+                <th>Usage Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in stats.top_items %}
+              <tr>
+                <td style="font-weight: 500;">{{ item.article_number }}</td>
+                <td style="font-weight: 500;">{{ item.name }}</td>
+                <td><span class="badge bg-success text-dark rounded-pill fs-6">{{ item.count }}</span></td>
+
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% else %}
+          <p class="text-muted text-center">No data.</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Unreturned Items Table -->
+<div class="row justify-content-center mt-5" data-aos="fade-up" data-aos-delay="400">
+  <div class="col-lg-10">
+    <h4 class="text-light text-center mb-3">Items Not Returned</h4>
+
+    {% if stats.unreturned_items %}
+    <div class="table-responsive">
+      <table class="table table-hover table-striped align-middle text-center mb-0" style="border-radius: .5rem; overflow: hidden;">
+        <thead class="table-dark text-white">
+          <tr>
+            <th>Article Number</th>
+            <th>Article</th>
+            <th>Quantity Not Returned</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in stats.unreturned_items %}
+          <tr>
+            <td style="font-weight: 500;">{{ item.article_number }}</td>
+            <td style="font-weight: 500;">{{ item.name }}</td>
+            <td><span class="badge bg-danger text-white rounded-pill fs-6">{{ item.quantity }}</span></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+      <p class="text-muted text-center">All items returned. ✅</p>
+    {% endif %}
+  </div>
+</div>
+
+
+  </div>
+</section>
+{% endblock %}

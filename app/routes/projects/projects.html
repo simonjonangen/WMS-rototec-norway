@@ -1,0 +1,418 @@
+{% extends 'layout.html' %}
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+<style>
+  .project-card {
+    background-color: #343a40;
+    border-radius: 0.5rem;
+    border-left: 4px solid #4CAF50;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-1px);
+  }
+
+  .project-header {
+    border-bottom: 1px solid #495057;
+    padding: 1rem 1.5rem;
+  }
+
+  .project-body {
+    padding: 1.5rem;
+  }
+
+  .badge-pill {
+    padding: 0.5em 0.75em;
+  }
+
+  .items-table th {
+    border-top: none;
+  }
+
+  .worker-badge {
+    background-color: #495057;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .status-badge {
+    font-size: 0.8rem;
+    padding: 0.35em 0.65em;
+  }
+
+  .status-active {
+    background-color: #28a745;
+  }
+
+  .status-completed {
+    background-color: #6c757d;
+  }
+
+  .status-cancelled {
+    background-color: #dc3545;
+  }
+
+  .status-upcoming {
+    background-color: #ffc107; /* Bootstrap warning yellow */
+    color: #212529;
+  }
+
+  .search-results {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  .hover-highlight:hover {
+    background-color: #555;
+  }
+
+  /* Make the clickable Active badge look like a badge, not a button */
+  .js-finish-project {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 0;
+  }
+  .js-finish-project .badge {
+    cursor: pointer;
+  }
+</style>
+
+<section id="hero" class="hero section dark-background">
+  <img src="{{ url_for('static', filename='assets/img/hero-bg.jpg') }}" alt="" data-aos="fade-in">
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="container section-title text-center" data-aos="fade-up">
+      <h2>Projects</h2>
+      <p>View all your assigned projects</p>
+    </div>
+
+    {% if not projects %}
+      <div class="alert alert-info text-center">You are not currently assigned to any projects.</div>
+    {% else %}
+      <div class="projects-list">
+        {% for project in projects %}
+          <div class="project-card" data-project-card data-project-number="{{ project.project_number }}">
+            <div class="project-header d-flex justify-content-between align-items-center">
+              <div>
+                <h4 class="mb-0">
+                  Project Number: {{ project.project_number }}
+
+                  {# --- Status badge area (manager can click "Active" to finish) --- #}
+                  {% set status = (project.status or '').lower() %}
+                  {% if status == 'active' and is_master %}
+                    <button
+                      type="button"
+                      class="js-finish-project align-middle"
+                      title="Mark this project as finished">
+                      <span class="status-badge badge status-{{ project.status }} ml-2">Active</span>
+                    </button>
+                  {% else %}
+                    <span class="status-badge badge status-{{ project.status }} ml-2">
+                      {{ project.status|capitalize }}
+                    </span>
+                  {% endif %}
+                </h4>
+              {% if project.customer_name %}
+                  <small class="text-white d-block">
+                    Customer Address: {{ project.customer_name }}
+                  </small>
+              {% endif %}
+              </div>
+              <div class="text-right text-white">
+                <small class="text-white">Created by: {{ project.created_by }}</small><br>
+                <small>{{ project.start_date }} to {{ project.end_date }}</small><br>
+                <small>{{ project.items_count }} item(s)</small>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="mb-3">
+                <h6>Assigned Worker(s):</h6>
+                <div class="d-flex flex-wrap">
+                  {% for worker in project.workers %}
+                    <span class="worker-badge badge">{{ worker }}</span>
+                  {% endfor %}
+                </div>
+              </div>
+
+              <h6>Required Materials:</h6>
+              {% if project.project_items %}
+                <div class="table-responsive">
+                  <table class="table table-dark items-table">
+                    <thead>
+                        <tr>
+                            <th>Item ID</th>
+                            <th>Name</th>
+                            <th style="width: 130px;">Projected Qty</th>
+                            <th style="width: 100px;">Taken Qty</th>
+                            <th style="width: 130px;">Returned Qty</th>
+                            <th>Status</th>
+                            {% if is_master %}<th>Action</th>{% endif %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in project.project_items %}
+                        <tr data-item-id="{{ item.item_id }}" data-project-number="{{ project.project_number }}">
+                            <td>{{ item.item_id }}</td>
+                            <td>{{ item.item_name }}</td>
+                            <td style="width: 100px;">
+                                {% if is_master %}
+                                <input type="number" class="form-control form-control-sm quantity-input"
+                                       value="{{ item.projected_quantity }}" min="0" style="width: 60px;">
+                                {% else %}
+                                {{ item.projected_quantity }}
+                                {% endif %}
+                            </td>
+                            <td style="width: 100px;">{{ item.used_quantity }}</td>
+                            <td style="width: 100px;">{{ item.returned_quantity }}</td>
+                            <td>
+                              {% if item.returned_quantity >= item.projected_quantity %}
+                                <span class="badge bg-success">Completed</span>
+                              {% elif item.used_quantity > 0 %}
+                                <span class="badge bg-warning text-dark">In Progress</span>
+                              {% else %}
+                                <span class="badge bg-secondary">Pending</span>
+                              {% endif %}
+                            </td>
+
+                            {% if is_master %}
+                            <td><button class="btn btn-danger btn-sm delete-item">Delete</button></td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+              {% else %}
+                <div class="alert alert-secondary">No materials required for this project.</div>
+              {% endif %}
+
+              {% if is_master %}
+              <!-- Add Item Form -->
+              <div class="mt-3">
+                <button class="btn btn-outline-light mb-2" onclick="document.getElementById('newItemForm').style.display = 'flex'">
+                  Add New Item
+                </button>
+
+                <div id="newItemForm" class="row g-2 align-items-center" style="display: none;">
+                  <div class="col-md-5">
+                    <input type="text" id="newItemSearch" class="form-control" placeholder="Search item by name...">
+                    <div id="searchResults" class="search-results position-absolute bg-dark text-white p-2 rounded mt-1" style="z-index: 1000; display: none;"></div>
+                  </div>
+                  <div class="col-md-3">
+                    <input type="number" id="newItemQuantity" class="form-control" placeholder="Quantity" min="1" value="1">
+                  </div>
+                  <div class="col-md-3">
+                    <button id="addNewItemBtn" class="btn btn-success" data-project-number="{{ project.project_number }}">Add Item</button>
+                  </div>
+                </div>
+              </div>
+
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+{% if is_master %}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  function showStyledAlert(options) {
+    return Swal.fire({
+      background: '#000',
+      color: '#fff',
+      iconColor: '#4CAF50',
+      confirmButtonColor: '#4CAF50',
+      cancelButtonColor: '#6c757d',
+      ...options
+    });
+  }
+
+  // Quantity update
+  document.querySelectorAll('.quantity-input').forEach(input => {
+    input.addEventListener('change', async () => {
+      const row = input.closest('tr');
+      const itemId = row.dataset.itemId;
+      const projectNumber = row.dataset.projectNumber;
+      const quantity = input.value;
+
+      const response = await fetch("/api/update_project_item", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ project_number: projectNumber, item_id: itemId, quantity: quantity })
+      });
+
+      if (!response.ok) {
+        showStyledAlert({ title: 'Error', text: 'Failed to update quantity.', icon: 'error' });
+      }
+    });
+  });
+
+  // Delete item
+  document.querySelectorAll('.delete-item').forEach(button => {
+    button.addEventListener('click', () => {
+      const row = button.closest('tr');
+      const itemId = row.dataset.itemId;
+      const projectNumber = row.dataset.projectNumber;
+
+      showStyledAlert({
+        title: 'Are you sure?',
+        text: "This will remove the item from the project.",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it'
+      }).then(result => {
+        if (result.isConfirmed) deleteItem(projectNumber, itemId, row);
+      });
+    });
+  });
+
+  async function deleteItem(projectNumber, itemId, row) {
+    const response = await fetch("/api/update_project_item", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ project_number: projectNumber, item_id: itemId, delete: true })
+    });
+
+    if (response.ok) {
+      row.remove();
+      showStyledAlert({ title: 'Deleted!', text: 'The item has been removed.', icon: 'success' });
+    } else {
+      showStyledAlert({ title: 'Error', text: 'Failed to delete the item.', icon: 'error' });
+    }
+  }
+
+  // Add item functionality
+  let allItems = [];
+
+  fetch("/api/search_items")
+    .then(res => res.json())
+    .then(data => allItems = data)
+    .catch(() => console.error("Failed to load catalog"));
+
+  const searchInput = document.getElementById("newItemSearch");
+  const searchResults = document.getElementById("searchResults");
+
+  searchInput?.addEventListener("input", function () {
+    const query = this.value.toLowerCase().trim();
+    searchResults.innerHTML = "";
+
+    if (query.length < 2) return searchResults.style.display = "none";
+
+    const matches = allItems.filter(item => item.product_name?.toLowerCase().includes(query));
+
+    if (matches.length === 0) {
+      searchResults.innerHTML = "<div>No items found</div>";
+    } else {
+      matches.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "p-1 hover-highlight";
+        div.textContent = item.product_name;
+        div.dataset.id = item.article_number;
+        div.dataset.name = item.product_name;
+        div.onclick = () => {
+          searchInput.value = item.product_name;
+          searchInput.dataset.id = item.article_number;
+          searchResults.style.display = "none";
+        };
+        searchResults.appendChild(div);
+      });
+    }
+
+    searchResults.style.display = "block";
+  });
+
+  document.addEventListener("click", e => {
+    if (!searchResults.contains(e.target) && e.target !== searchInput) {
+      searchResults.style.display = "none";
+    }
+  });
+
+  document.getElementById("addNewItemBtn")?.addEventListener("click", async function () {
+    const projectNumber = this.dataset.projectNumber;
+    const name = searchInput.value.trim();
+    const id = searchInput.dataset.id;
+    const quantity = parseInt(document.getElementById("newItemQuantity").value);
+
+    if (!id || !name || isNaN(quantity) || quantity < 1) {
+      return showStyledAlert({
+        icon: 'warning',
+        title: 'Missing Info',
+        text: 'Please select a valid item and quantity.'
+      });
+    }
+
+    const res = await fetch("/api/update_project_item", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ project_number: projectNumber, item_id: id, item_name: name, quantity: quantity, add: true })
+    });
+
+    if (res.ok) {
+      showStyledAlert({ icon: 'success', title: 'Item Added', text: `${name} added successfully!` }).then(() => window.location.reload());
+    } else {
+      showStyledAlert({ icon: 'error', title: 'Error', text: 'Could not add item to project.' });
+    }
+  });
+
+  // --- NEW: Finish project action (manager only) ---
+  document.addEventListener('click', async (e) => {
+    const btn = e.target.closest('.js-finish-project');
+    if (!btn) return;
+
+    const card = btn.closest('[data-project-card]');
+    const projectNumber = card?.getAttribute('data-project-number');
+
+    const result = await showStyledAlert({
+      title: 'Finish project?',
+      text: 'Are you sure you want to finish this project?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, finish it'
+    });
+
+    if (!result.isConfirmed) return;
+
+    try {
+      const res = await fetch(`/api/projects/${encodeURIComponent(projectNumber)}/status`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ status: 'finished' })
+      });
+      const json = await res.json();
+
+      if (!res.ok || !json.ok) {
+        throw new Error(json.error || 'Failed to finish project');
+      }
+
+      // Remove the card from the DOM so it disappears immediately
+      card?.remove();
+
+      await showStyledAlert({
+        icon: 'success',
+        title: 'Project finished',
+        text: `Project ${projectNumber} is now finished.`
+      });
+    } catch (err) {
+      console.error(err);
+      showStyledAlert({
+        icon: 'error',
+        title: 'Error',
+        text: err.message || 'Network error while finishing the project.'
+      });
+    }
+  });
+});
+</script>
+{% endif %}
+{% endblock %}

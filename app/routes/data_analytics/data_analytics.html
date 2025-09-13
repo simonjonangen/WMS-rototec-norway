@@ -1,0 +1,484 @@
+{% extends 'layout.html' %}
+{% block title %}Data Analytics{% endblock %}
+
+{% block content %}
+<style>
+  .pagination .page-item.active .page-link {
+    background-color: #4CAF50;
+    color: #fff;
+    font-weight: bold;
+    border-color: #4CAF50;
+  }
+  .pagination .page-link {
+    color: #fff;
+    background-color: #343a40;
+    border: 1px solid #6c757d;
+  }
+  .pagination .page-link:hover {
+    background-color: #4CAF50;
+    color: #fff;
+  }
+</style>
+
+<section id="hero" class="hero section dark-background">
+  <img src="{{ url_for('static', filename='assets/img/hero-bg.jpg') }}" alt="" data-aos="fade-in">
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <!-- Pagination controls (used elsewhere on the page if needed) -->
+    <nav class="mt-4">
+      <ul class="pagination justify-content-center" id="paginationControls"></ul>
+    </nav>
+
+    <!-- Analytics Section -->
+    <div class="container section-title text-center mt-5" data-aos="fade-up">
+      <h2>Analytics Overview</h2>
+      <p>Explore item usage trends, user activity, and reported issues</p>
+    </div>
+
+    <div class="row g-4 text-white">
+
+      <!-- Top Users -->
+      <div class="col-md-6">
+        <div class="bg-dark p-4 rounded shadow-sm h-100">
+          <h5 class="text-success">Top Users</h5>
+          <ul class="mb-0">
+            {% for user in top_users %}
+            <li><strong>{{ user.user_name }}</strong>: {{ user.quantity }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Most Taken Items -->
+      <div class="col-md-6">
+        <div class="bg-dark p-4 rounded shadow-sm h-100">
+          <h5 class="text-success">Most Taken Items</h5>
+          <ul class="mb-0">
+            {% for item in top_items %}
+            <li><strong>{{ item.product_name }}</strong> ({{ item.article_number }}): {{ item.quantity }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Top Issues -->
+      <div class="col-md-6">
+        <div class="bg-dark p-4 rounded shadow-sm h-100">
+          <h5 class="text-danger">Items With Most Issues</h5>
+          <ul class="mb-0">
+            {% for issue in issue_counts %}
+            <li><strong>{{ issue.product_name }}</strong> ({{ issue.article_number }}): {{ issue.issue_count }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Items Below Safety Stock -->
+      <div class="col-12">
+        <div class="bg-dark p-4 rounded shadow-sm h-100">
+          <h5 class="text-warning">Items Below Safety Stock</h5>
+          <div class="table-responsive">
+            <table class="table table-dark table-sm align-middle mb-0" id="lowStockTable">
+              <thead>
+                <tr>
+                  <th>Article</th>
+                  <th>Item</th>
+                  <th class="text-center">Stock / Safety</th>
+                  <th class="text-center">Deficit</th>
+                  <th class="text-center">Delivery on the way</th>
+                  <th class="text-center">Low Stock</th>
+                  <th class="text-center">Item unalarmed</th>
+                  <th class="text-center">Comment for Order</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in low_stock %}
+                <tr data-article="{{ item.article_number or '' }}" data-name="{{ item.product_name or item.product_description or 'Unnamed item' }}">
+                  <td>{{ item.article_number or '—' }}</td>
+                  <td>{{ item.product_name or item.product_description or 'Unnamed item' }}</td>
+                  <td class="text-center">{{ item.stock_int }} / {{ item.safety_stock_int }}</td>
+                  <td class="text-center">{{ item.deficit or 0 }}</td>
+                  <td class="text-center">
+                    {% if item.delivery_on_the_way %}
+                      <span class="badge bg-warning text-dark">On the way</span>
+                    {% else %}
+                      <span class="text-muted">—</span>
+                    {% endif %}
+                  </td>
+                  <td class="text-center"><span class="badge bg-danger">Yes</span></td>
+                  <td class="text-center">
+                    <input type="checkbox" class="form-check-input item-unalarmed-checkbox" />
+                  </td>
+                  <td class="text-center">
+                    <input type="checkbox" class="form-check-input comment-order-checkbox" />
+                  </td>
+                </tr>
+                {% else %}
+                <tr><td colspan="8" class="text-center text-muted">All good! No items are currently below safety stock.</td></tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Chart Section -->
+    <div class="mt-5 mb-4">
+      <h4 class="text-white">Daily Usage Trend</h4>
+      <canvas id="usageChart" height="100"></canvas>
+    </div>
+
+    <!-- Data Analytics Rows (Project Movements) -->
+    <div class="mt-5">
+      <h4 class="text-white mb-3">Project Movements</h4>
+
+      <!-- Filters -->
+      <form id="analyticsFilterForm" class="row g-2 mb-3">
+        <div class="col-md-3">
+          <input type="text" id="fArticle" class="form-control form-control-sm" placeholder="Filter: Article Number">
+        </div>
+        <div class="col-md-3">
+          <input type="text" id="fProject" class="form-control form-control-sm" placeholder="Filter: Project #">
+        </div>
+        <div class="col-md-3">
+          <input type="text" id="fDriller" class="form-control form-control-sm" placeholder="Filter: Driller">
+        </div>
+        <div class="col-md-3">
+          <input type="text" id="fItem" class="form-control form-control-sm" placeholder="Filter: Item name">
+        </div>
+      </form>
+
+      <style>
+        /* Project Movements table polish */
+        #analyticsTable thead th {
+          position: sticky; top: 0; z-index: 2;
+        }
+        #analyticsTable .num { text-align: right; white-space: nowrap; }
+        #analyticsWrap {
+          border-radius: .5rem; overflow: auto; /* enables sticky header inside */
+          box-shadow: 0 0 0 1px rgba(255,255,255,.08) inset;
+        }
+        #analyticsTable tbody tr:hover { filter: brightness(1.08); }
+        #analyticsTable td, #analyticsTable th { vertical-align: middle; }
+      </style>
+
+      <div id="analyticsWrap" class="table-responsive">
+        <table class="table table-hover table-striped table-dark align-middle mb-0" id="analyticsTable">
+          <thead class="table-dark">
+            <tr class="text-center">
+              <th style="min-width:120px;">Article Number</th>
+              <th style="min-width:155px;">Order time</th>
+              <th style="min-width:110px;">Order status</th>
+              <th style="min-width:150px;">Warehouse</th>
+              <th style="min-width:140px;">Driller</th>
+              <th style="min-width:110px;">Project #</th>
+              <th style="min-width:120px;">Pickup time</th>
+              <th style="min-width:220px;">Item name</th>
+              <th class="text-end" style="min-width:105px;">Projected</th>
+              <th class="text-end" style="min-width:90px;">Taken</th>
+              <th class="text-end" style="min-width:105px;">Returned</th>
+              <th style="min-width:180px;">Comments</th>
+            </tr>
+          </thead>
+          <tbody id="analyticsTbody">
+            {% for r in analytics_rows %}
+            <tr>
+              <td data-col="article">{{ r["Article Number"] }}</td>
+              <td>{{ r["Order time"] }}</td>
+              <td>{{ r["Order status"] }}</td>
+              <td data-col="warehouse">{{ r["Warehouse"] }}</td>
+              <td data-col="driller">{{ r["Driller"] }}</td>
+              <td data-col="project">{{ r["Drilling unit / Project number"] }}</td>
+              <td>{{ r["Pickup time"] }}</td>
+              <td data-col="item">{{ r["Item name"] }}</td>
+              <td class="num">{{ r["Projected quantity"] }}</td>
+              <td class="num">{{ r["Taken quantity"] }}</td>
+              <td class="num">{{ r["Returned quantity"] }}</td>
+              <td>{{ r["Comments"] }}</td>
+            </tr>
+            {% else %}
+            <tr><td colspan="12" class="text-center text-muted">No analytics rows yet.</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination controls for Project Movements -->
+      <div class="d-flex align-items-center justify-content-between mt-3">
+        <div class="text-muted small">
+          <span id="analyticsCount"></span>
+        </div>
+        <nav>
+          <ul class="pagination pagination-sm mb-0" id="analyticsPagination"></ul>
+        </nav>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Stock Comment Modal -->
+  <div class="modal fade" id="stockCommentModal" tabindex="-1" aria-labelledby="stockCommentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="stockCommentModalLabel">New comment for <span id="scName"></span></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="small mb-2 text-secondary">
+            <div>Artikel: <span id="scArticle"></span></div>
+          </div>
+          <form id="stockCommentForm">
+            <div class="mb-3">
+              <label for="scComment" class="form-label">Comment</label>
+              <textarea class="form-control" id="scComment" rows="3" placeholder="Ex: 'Will order later'"></textarea>
+            </div>
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="" id="scUnalarmed">
+              <label class="form-check-label" for="scUnalarmed">Item unalarmed</label>
+            </div>
+            <div id="scError" class="text-danger small d-none"></div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" id="scConfirm" class="btn btn-success">Save comment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- Chart + Pagination Script -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const dailyData = {{ daily_usage | tojson }};
+  const ctx = document.getElementById('usageChart').getContext('2d');
+  const chart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: dailyData.map(d => new Date(d.day).toLocaleDateString("en-GB", {
+        weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'
+      })),
+      datasets: [{
+        label: 'Total Quantity Taken',
+        data: dailyData.map(d => d.quantity),
+        borderWidth: 2,
+        fill: false,
+        tension: 0.2,
+        borderColor: '#4CAF50'
+      }]
+    },
+    options: { scales: { y: { beginAtZero: true } } }
+  });
+
+  // (Legacy example pagination for another table if needed)
+  document.addEventListener("DOMContentLoaded", () => {
+    const rows = document.querySelectorAll("#logsTable tbody tr");
+    const rowsPerPage = 15;
+    const totalPages = Math.ceil(rows.length / rowsPerPage);
+    const pagination = document.getElementById("paginationControls");
+    let currentPage = 1;
+    function showPage(page) {
+      currentPage = page;
+      rows.forEach((row, index) => {
+        row.style.display = (index >= (page - 1) * rowsPerPage && index < page * rowsPerPage) ? "" : "none";
+      });
+      renderPagination();
+    }
+    function renderPagination() {
+      pagination.innerHTML = "";
+      for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement("li");
+        li.className = `page-item ${i === currentPage ? "active" : ""}`;
+        li.innerHTML = `<button class="page-link">${i}</button>`;
+        li.addEventListener("click", () => showPage(i));
+        pagination.appendChild(li);
+      }
+    }
+    if (rows.length > 0) showPage(1);
+  });
+</script>
+
+<!-- Low-stock modal interactions -->
+<script>
+(function () {
+  let modalEl = document.getElementById('stockCommentModal');
+  let bsModal = null;
+  let active = { article: "", name: "", tr: null };
+
+  function ensureModal() { if (!bsModal) bsModal = new bootstrap.Modal(modalEl); }
+  function rowForArticle(article) {
+    return document.querySelector(`#lowStockTable tbody tr[data-article="${CSS.escape(article)}"]`);
+  }
+
+  // Comment for Order checkbox
+  document.querySelectorAll('.comment-order-checkbox').forEach(cb => {
+    cb.addEventListener('change', async () => {
+      const tr = cb.closest('tr');
+      const article = tr?.dataset.article || "";
+      const name = tr?.dataset.name || "";
+      if (!article) return;
+
+      if (cb.checked) {
+        active.article = article; active.name = name; active.tr = tr;
+        document.getElementById('scName').textContent = name || "—";
+        document.getElementById('scArticle').textContent = article || "—";
+        document.getElementById('scComment').value = "";
+        document.getElementById('scUnalarmed').checked = false;
+        const err = document.getElementById('scError'); err.classList.add('d-none'); err.textContent = "";
+        ensureModal(); bsModal.show();
+      } else {
+        const success = await toggleComment(article, "");
+        if (!success) cb.checked = true;
+        const ua = tr.querySelector('.item-unalarmed-checkbox');
+        if (ua) ua.checked = false;
+      }
+    });
+  });
+
+  // Item unalarmed checkbox
+  document.querySelectorAll('.item-unalarmed-checkbox').forEach(cb => {
+    cb.addEventListener('change', async () => {
+      const tr = cb.closest('tr');
+      const article = tr?.dataset.article || "";
+      if (!article) return;
+      const orderCb = tr.querySelector('.comment-order-checkbox');
+      if (cb.checked) {
+        if (orderCb) orderCb.checked = true;
+        active.article = article; active.name = tr?.dataset.name || ""; active.tr = tr;
+        document.getElementById('scName').textContent = active.name || "—";
+        document.getElementById('scArticle').textContent = active.article || "—";
+        document.getElementById('scComment').value = "";
+        document.getElementById('scUnalarmed').checked = true;
+        const err = document.getElementById('scError'); err.classList.add('d-none'); err.textContent = "";
+        ensureModal(); bsModal.show();
+      } else {
+        const success = await toggleComment(article, "");
+        if (!success) cb.checked = true;
+        if (orderCb) orderCb.checked = false;
+      }
+    });
+  });
+
+  // Save from modal
+  document.getElementById('scConfirm').addEventListener('click', async () => {
+    if (!active.article) return;
+    const comment = document.getElementById('scComment').value.trim() || "OK";
+    const unalarmed = document.getElementById('scUnalarmed').checked;
+    const success = await toggleComment(active.article, comment);
+    if (success) {
+      const tr = active.tr || rowForArticle(active.article);
+      if (tr) {
+        const ua = tr.querySelector('.item-unalarmed-checkbox');
+        const co = tr.querySelector('.comment-order-checkbox');
+        if (ua) ua.checked = !!unalarmed;
+        if (co) co.checked = true;
+      }
+      bsModal.hide();
+    }
+  });
+
+  async function toggleComment(article, comment) {
+    try {
+      const url = comment === ""
+        ? "{{ url_for('data_analytics.clear_stock_comment') }}"
+        : "{{ url_for('data_analytics.add_stock_comment') }}";
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ article_number: article, comment })
+      });
+      const json = await res.json();
+      if (!json.ok) throw new Error(json.error || "Unexpected error");
+      return true;
+    } catch (e) {
+      const err = document.getElementById('scError');
+      err.textContent = e.message || String(e);
+      err.classList.remove('d-none');
+      return false;
+    }
+  }
+})();
+</script>
+
+<!-- Project Movements: filters + pagination -->
+<script>
+(function(){
+  const tbody = document.getElementById('analyticsTbody');
+  if (!tbody) return;
+
+  const rows  = Array.from(tbody.querySelectorAll('tr'));
+  const pagEl = document.getElementById('analyticsPagination');
+  const countEl = document.getElementById('analyticsCount');
+
+  // Filters
+  const fArticle = document.getElementById('fArticle');
+  const fProject = document.getElementById('fProject');
+  const fDriller = document.getElementById('fDriller');
+  const fItem    = document.getElementById('fItem');
+
+  let filtered = rows.slice();
+  let current = 1;
+  const pageSize = 15;
+
+  function applyFilters() {
+    const qa = (fArticle?.value || '').toLowerCase().trim();
+    const qp = (fProject?.value || '').toLowerCase().trim();
+    const qd = (fDriller?.value || '').toLowerCase().trim();
+    const qi = (fItem?.value || '').toLowerCase().trim();
+
+    filtered = rows.filter(tr => {
+      const article = (tr.querySelector('[data-col="article"]')?.textContent || '').toLowerCase();
+      const project = (tr.querySelector('[data-col="project"]')?.textContent || '').toLowerCase();
+      const driller = (tr.querySelector('[data-col="driller"]')?.textContent || '').toLowerCase();
+      const item    = (tr.querySelector('[data-col="item"]')?.textContent || '').toLowerCase();
+      return (!qa || article.includes(qa))
+          && (!qp || project.includes(qp))
+          && (!qd || driller.includes(qd))
+          && (!qi || item.includes(qi));
+    });
+
+    current = 1;
+    render();
+  }
+
+  function render() {
+    rows.forEach(tr => tr.style.display = 'none');
+    const total = filtered.length;
+    const pages = Math.max(1, Math.ceil(total / pageSize));
+    const start = (current - 1) * pageSize;
+    const end   = start + pageSize;
+
+    filtered.slice(start, end).forEach(tr => tr.style.display = '');
+
+    countEl.textContent = total
+      ? `Showing ${Math.min(end, total)} of ${total} rows`
+      : 'No matching rows';
+
+    pagEl.innerHTML = '';
+    for (let i = 1; i <= pages; i++) {
+      const li = document.createElement('li');
+      li.className = 'page-item' + (i === current ? ' active' : '');
+      const btn = document.createElement('button');
+      btn.className = 'page-link';
+      btn.textContent = i;
+      btn.addEventListener('click', () => { current = i; render(); });
+      li.appendChild(btn);
+      pagEl.appendChild(li);
+    }
+  }
+
+  // Wire filters
+  [fArticle, fProject, fDriller, fItem].forEach(inp => inp?.addEventListener('input', applyFilters));
+
+  // Initial
+  applyFilters();
+})();
+</script>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+Flask==3.0.0
+gunicorn==21.2.0
+python-dotenv==1.0.1
+supabase
+pandas
+rapidfuzz
+qrcode
+pillow
+openpyxl
+flask
+google-api-python-client
+google-auth
+google-auth-oauthlib
+google-auth-httplib2
