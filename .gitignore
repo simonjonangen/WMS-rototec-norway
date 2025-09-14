@@ -3,3 +3,4 @@ app/google_sheets/client_secret.json
 .env
 __pycache__/
 .venv/
+.env
